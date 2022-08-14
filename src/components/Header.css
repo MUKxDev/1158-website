@@ -1,0 +1,25 @@
+a {
+  cursor: pointer;
+  opacity: 0.5;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+a:hover {
+  transition: all 0.3s;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-hidden {
+  opacity: 0;
+  transition: 0.2s all;
+}
+
+.nav-middle {
+  opacity: 1;
+  position: -webkit-sticky;
+  position: sticky;
+
+  transition: 0.3s all;
+}
