@@ -13,7 +13,7 @@ a:hover {
 
 .nav-hidden {
   opacity: 0;
-  transition: 0.2s all;
+  transition: 0.3s all;
 }
 
 .nav-middle {

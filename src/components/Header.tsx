@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./Header.css";
 import asambaSymbol from "../assets/asamba-symbol.svg";
 import soundOn from "../assets/sound-on.svg";
@@ -7,20 +7,6 @@ import HeroMenu from "./HeroMenu";
 import music from "../assets/music.mp3";
 
 const Header = () => {
-  const [scrollShow, setScrollPosition] = useState(0);
-  const handleScroll = (event: any) => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
-  console.log(scrollShow);
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef(new Audio(music));
   const play = () => {
@@ -37,8 +23,8 @@ const Header = () => {
       <div className="nav-start">
         <img className="h-10" src={asambaSymbol} alt="asamba-symbol" />
       </div>
-      <div className={scrollShow > 550 ? "nav-middle" : "nav-hidden"}>
-        <HeroMenu />
+      <div>
+        <HeroMenu isHeader={true} />
       </div>
       <div className="nav-end">
         <button onClick={playing ? pause : play} className="cursor-pointer">
