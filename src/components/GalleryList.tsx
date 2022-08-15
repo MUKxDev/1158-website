@@ -11,12 +11,11 @@ export default function GalleryList() {
     fetchData();
   }, []);
 
+  /**
+   * We're using the axios library to make a GET request to the Pexels API, and then we're using the
+   * setPictures function to set the state of the pictures array to the response we get from the API
+   */
   async function fetchData() {
-    // const http = rateLimit(axios.create(), {
-    //   maxRequests: 2,
-    //   perMilliseconds: 1000,
-    //   maxRPS: 2,
-    // });
     await axios
       .get<Pictures>(`https://api.pexels.com/v1/curated?page=2&per_page=10`, {
         headers: { Authorization: `${APIKEY}` },
@@ -38,7 +37,7 @@ export default function GalleryList() {
         {pictures.map((pic: Photo) => (
           <img
             key={pic.id}
-            className="object-cover w-full h-[90%] md:h-[70%] snap-start scroll-mx-6"
+            className="object-cover w-full h-[90%] md:h-[70%] snap-start scroll-mx-6 opacity-50 hover:opacity-100 duration-150"
             src={pic.src.portrait}
             alt={pic.alt}
           />

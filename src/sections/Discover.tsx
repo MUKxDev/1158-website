@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-
+import { useEffect } from "react";
+import videoBg from "../assets/discover-video.mp4";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -11,29 +11,49 @@ const Discover = () => {
   return (
     <div
       id="discover"
-      className="h-screen w-full flex flex-col align-middle items-center text-white mt-5 px-10"
+      className="relative flex flex-col items-center justify-center w-full h-screen max-w-5xl px-10 mx-auto mt-5 text-white align-middle"
     >
-      <div
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        className="header lg:text-6xl text-white flex justify-center mb-5"
-      >
-        <h1>Discover the future</h1>
+      {/* Hero */}
+      <div className="z-10">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          className="flex justify-center mb-5 text-white header lg:text-6xl"
+        >
+          <h1 className="max-w-4xl font-serif font-extralight text-8xl">
+            The greatest experience in the universe
+          </h1>
+        </div>
+        <div
+          data-aos="fade"
+          data-aos-duration="1000"
+          data-aos-delay="150"
+          className="line-divider"
+        >
+          {/* <span className="h-[2px] w-20 bg-white flex justify-center mb-10"></span> */}
+          <h4>ASAMBA will be the future of Health & Fitness</h4>
+        </div>
       </div>
+      {/* Video */}
       <div
         data-aos="fade"
         data-aos-duration="1000"
-        data-aos-delay="150"
-        className="line-divider"
+        className="absolute mt-40  right-0 w-[75%]"
       >
-        <span className="h-[2px] w-20 bg-white flex justify-center mb-10"></span>
+        <video
+          className="object-cover w-full h-full rounded-full max-h-80"
+          src={videoBg}
+          autoPlay
+          loop
+          muted
+        />
       </div>
-      <div className="content-section grid grid-cols-2 gap-5 justify-top items-top text-center">
+      {/* <div className="grid grid-cols-2 gap-5 text-center content-section justify-top items-top">
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
-          className="section-1 text-left bg-green-300"
+          className="text-left bg-green-300 section-1"
         >
           <div>Hi section 1</div>
         </div>
@@ -41,11 +61,11 @@ const Discover = () => {
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="400"
-          className="section-2 bg-purple-300"
+          className="bg-purple-300 section-2"
         >
           <div>Hi section 2</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

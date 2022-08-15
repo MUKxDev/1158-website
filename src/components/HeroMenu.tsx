@@ -28,13 +28,12 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
       }
     >
       <div className="flex justify-center">
-        <ul className="list-none lg:block hidden">
+        <ul className="hidden list-none lg:block">
           <Link
             activeClass="active"
             to="discover"
             spy={true}
             smooth={true}
-            offset={-70}
             duration={500}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
@@ -46,7 +45,6 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             to="features"
             spy={true}
             smooth={true}
-            offset={-70}
             duration={500}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
@@ -58,7 +56,6 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             to="investment"
             spy={true}
             smooth={true}
-            offset={-70}
             duration={500}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
