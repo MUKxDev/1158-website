@@ -9,7 +9,7 @@ import Investment from "./sections/Investment";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <Header />
       <Footer />
       <Main />

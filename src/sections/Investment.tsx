@@ -1,9 +1,8 @@
-import React from 'react'
+
+
 
 const Investment = () => {
-  return (
-    <div>Investment</div>
-  )
-}
+  return <div className=""></div>;
+};
 
-export default Investment
+export default Investment;
