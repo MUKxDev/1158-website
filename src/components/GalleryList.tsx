@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { draggable } from "./draggable";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
+const handleDragStart = (e:any) => e.preventDefault();
+
 
 const APIKEY: string =
   "563492ad6f91700001000001f1ea21d82f2b4c6a994d089180f7cbea";
@@ -10,7 +14,6 @@ export default function GalleryList() {
 
   useEffect(() => {
     fetchData();
-    draggable();
   }, []);
 
   /**
@@ -33,19 +36,28 @@ export default function GalleryList() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen draggable">
-      {/* Gallery */}
-      <div className="flex items-center w-full gap-6 px-6 overflow-x-scroll">
-        {pictures.map((pic: Photo) => (
-          <img
-            key={pic.id}
-            className="object-cover w-full h-[90%] md:h-[70%] scroll-mx-6 opacity-50 hover:opacity-100 duration-150"
-            src={pic.src.portrait}
-            alt={pic.alt}
-          />
-        ))}
-      </div>
-    </div>
+    <AliceCarousel autoPlay={true} infinite={true} autoPlayInterval={3000} disableDotsControls={true} disableButtonsControls={true} responsive={{
+      0: {
+          items: 1,
+      },
+      500:{
+        items:2
+      },
+      800: {
+        items:3
+      },
+      1024: {
+          items: 5
+      }
+    }} mouseTracking items= {pictures.map((pic: Photo) => (
+      <img
+        key={pic.id}
+        className="object-cover w-full h-[90%] md:h-[70%] px-1 scroll-mx-6 opacity-50 hover:opacity-100 duration-150"
+        onDragStart={handleDragStart} role="presentation"
+        src={pic.src.portrait}
+        alt={pic.alt}
+      />
+    ))}/>
   );
 }
 
