@@ -46,6 +46,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             spy={true}
             smooth={true}
             duration={500}
+            offset={-70}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
               FEATURES

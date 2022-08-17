@@ -20,6 +20,7 @@
     "react-audio-player": "^0.17.0",
     "react-daisyui": "^2.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.34.2",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.7",
     "react-scroll-parallax": "^3.3.1",
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.4",
     "@types/react-scroll": "^1.8.4",
     "autoprefixer": "^10.4.8",

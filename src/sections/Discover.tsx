@@ -18,9 +18,9 @@ const Discover = () => {
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className="flex justify-center mb-5 text-white header lg:text-6xl"
+          className="flex justify-center mb-5 text-white uppercase header"
         >
-          <h1 className="max-w-4xl font-serif font-extralight text-8xl">
+          <h1 className="max-w-4xl font-serif text-7xl font-extralight">
             The greatest experience in the universe
           </h1>
         </div>

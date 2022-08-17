@@ -11,7 +11,9 @@ html {
     font-family: "Inter var", sans-serif;
   }
 }
-
+html {
+  background-color: black;
+}
 body {
   margin: 0;
   -webkit-user-select: none;
@@ -74,4 +76,8 @@ input {
   to {
     opacity: 100%;
   }
+}
+
+.assambaInput {
+  @apply w-full px-0 m-0 text-white bg-transparent border-t-0 border-b border-white placeholder:text-white/60 border-x-0 h-fit ring-0 focus:ring-0 focus:border-white;
 }

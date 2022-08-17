@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import AliceCarousel from "react-alice-carousel";
+import AliceCarousel, { EventObject } from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
-const handleDragStart = (e:any) => e.preventDefault();
-
+const handleDragStart = (e: any) => e.preventDefault();
 
 const APIKEY: string =
   "563492ad6f91700001000001f1ea21d82f2b4c6a994d089180f7cbea";
 
 export default function GalleryList() {
   const [pictures, setPictures] = useState<Photo[]>([]);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
     fetchData();
@@ -35,29 +35,47 @@ export default function GalleryList() {
       });
   }
 
+  function onSlideChanged(e: EventObject) {
+    setActiveIndex(e.item);
+  }
+
   return (
-    <AliceCarousel autoPlay={true} infinite={true} autoPlayInterval={3000} disableDotsControls={true} disableButtonsControls={true} responsive={{
-      0: {
+    <AliceCarousel
+      activeIndex={activeIndex}
+      onSlideChanged={onSlideChanged}
+      autoPlay={true}
+      infinite={true}
+      autoPlayInterval={3000}
+      disableDotsControls={true}
+      disableButtonsControls={true}
+      responsive={{
+        0: {
           items: 1,
-      },
-      500:{
-        items:2
-      },
-      800: {
-        items:3
-      },
-      1024: {
-          items: 5
-      }
-    }} mouseTracking items= {pictures.map((pic: Photo) => (
-      <img
-        key={pic.id}
-        className="object-cover w-full h-[90%] md:h-[70%] px-1 scroll-mx-6 opacity-50 hover:opacity-100 duration-150"
-        onDragStart={handleDragStart} role="presentation"
-        src={pic.src.portrait}
-        alt={pic.alt}
-      />
-    ))}/>
+        },
+        500: {
+          items: 2,
+        },
+        800: {
+          items: 3,
+        },
+        1024: {
+          items: 5,
+        },
+      }}
+      mouseTracking
+      items={pictures.map((pic: Photo, index) => (
+        <img
+          key={pic.id}
+          className={`object-cover w-full h-[90%] md:h-[70%] px-2 scroll-mx-6 opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
+            activeIndex === index ? "opacity-100" : ""
+          }`}
+          onDragStart={handleDragStart}
+          role="presentation"
+          src={pic.src.portrait}
+          alt={pic.alt}
+        />
+      ))}
+    />
   );
 }
 
