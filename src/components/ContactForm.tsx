@@ -57,11 +57,11 @@ export default function ContactForm() {
           {...register("requestFor", { required: true })}
         >
           <option value="Business Deck 2022">Business Deck 2022</option>
+          <option value="Ship Deck 2023">Ship Deck 2023</option>
         </select>
       </div>
-      <span></span>
       <input
-        className="px-8 py-3 m-0 ml-auto text-white uppercase duration-150 border border-white rounded-full cursor-pointer bg-white/0 hover:bg-white/10 mt-11 w-fit"
+        className="px-8 py-3  md:col-span-2 m-0 mx-auto md:mr-0 text-white uppercase duration-150 border border-white rounded-full cursor-pointer bg-white/0 hover:bg-white/10 mt-11 w-fit"
         type="submit"
         value="Request Access"
       />

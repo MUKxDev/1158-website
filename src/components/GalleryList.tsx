@@ -55,7 +55,7 @@ export default function GalleryList() {
         500: {
           items: 2,
         },
-        800: {
+        768: {
           items: 3,
         },
         1024: {
@@ -66,7 +66,7 @@ export default function GalleryList() {
       items={pictures.map((pic: Photo, index) => (
         <img
           key={pic.id}
-          className={`object-cover w-full h-[90%] md:h-[70%] px-2 scroll-mx-6 opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
+          className={`object-cover w-full h-[90%] md:h-[70%] px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
             activeIndex === index ? "opacity-100" : ""
           }`}
           onDragStart={handleDragStart}

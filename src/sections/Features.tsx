@@ -12,7 +12,7 @@ const Features = () => {
         data-aos-duration="1000"
         className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
       >
-        <h1 className="max-w-3xl font-serif font-extralight text-7xl">
+        <h1 className="max-w-3xl font-serif font-extralight text-4xl md:text-7xl">
           Features
         </h1>
       </div>
@@ -22,7 +22,7 @@ const Features = () => {
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
+          className="flex justify-center mb-5 px-4 text-white uppercase header"
         >
           <img className="w-full h-full" src={features} alt="Features.jpeg" />
         </div>
@@ -33,7 +33,7 @@ const Features = () => {
         <div
           data-aos="fade"
           data-aos-duration="1000"
-          className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
+          className="flex justify-center px-4 mb-5 text-white uppercase header"
         >
           <img className="w-full h-full" src={stick} alt="Stick.jpeg" />
         </div>

@@ -36,10 +36,13 @@ const Hero = () => {
           <p className="text-xl drop-shadow-lg tracking-[0.3em]">EXPERIENCE</p>
           <br />
           <br />
-          <img className="h-14" src={asambaLogo} alt="asamba-logo" />
+          <img className="h-11 md:h-14 " src={asambaLogo} alt="asamba-logo" />
           <Divider />
           <div>
-            <button className="border-[1px] py-1.5 px-5 font-medium rounded-full border-white hover:opacity-70 transition-all duration-00">
+            <button
+              type="button"
+              className="border-[1px] py-1.5 px-5 font-medium rounded-full border-white hover:opacity-70 transition-all duration-00"
+            >
               <p className="text-sm drop-shadow-lg tracking-[0.15em] flex items-center">
                 WATCH FULL VIDEO{" "}
                 <img className="h-3 pl-2" src={playIcon} alt="sound-control" />

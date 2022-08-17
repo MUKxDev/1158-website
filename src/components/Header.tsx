@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "./Header.css";
 import asambaSymbol from "../assets/asamba-symbol.svg";
 import soundOn from "../assets/sound-on.svg";
@@ -27,7 +27,11 @@ const Header = () => {
         <HeroMenu isHeader={true} />
       </div>
       <div className="nav-end">
-        <button onClick={playing ? pause : play} className="cursor-pointer">
+        <button
+          type="button"
+          onClick={playing ? pause : play}
+          className="cursor-pointer"
+        >
           <img src={playing ? soundOn : soundOff} alt="sound-on" />
         </button>
       </div>
