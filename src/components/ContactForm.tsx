@@ -21,7 +21,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="text"
-          {...register("FIRST AND LAST NAME", {
+          {...register("firstAndLastName", {
             required: true,
             maxLength: 80,
           })}
@@ -34,7 +34,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="email"
-          {...register("EMAIL", { required: true, pattern: /^\S+@\S+$/i })}
+          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
         />
       </div>
       <div className="flex flex-col items-start justify-start w-full">
@@ -44,7 +44,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="text"
-          {...register("COMPANY NAME", { required: true, maxLength: 100 })}
+          {...register("shipName", { required: true, maxLength: 100 })}
         />
       </div>
 
@@ -54,7 +54,7 @@ export default function ContactForm() {
         </label>
         <select
           className="cursor-pointer assambaInput"
-          {...register("REQUEST FOR", { required: true })}
+          {...register("requestFor", { required: true })}
         >
           <option value="Business Deck 2022">Business Deck 2022</option>
         </select>

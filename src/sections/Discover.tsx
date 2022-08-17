@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import videoBg from "../assets/discover-video.mp4";
-import AOS from "aos";
+
 import "aos/dist/aos.css";
 
 const Discover = () => {
-  useEffect(() => {
-    AOS.init({});
-  }, []);
-
   return (
     <div
       id="discover"
