@@ -2,8 +2,9 @@ import Divider from "../components/Divider";
 import GalleryList from "../components/GalleryList";
 import features from "../assets/features.png";
 import stick from "../assets/stick.png";
+import Circles from "../components/Circles";
 
-const Features = () => {
+function Features() {
   return (
     <div id="features" className="w-full">
       {/* Header */}
@@ -12,21 +13,23 @@ const Features = () => {
         data-aos-duration="1000"
         className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
       >
-        <h1 className="max-w-3xl font-serif font-extralight text-4xl md:text-7xl">
+        <h1 className="max-w-3xl font-serif text-4xl font-extralight md:text-7xl">
           Features
         </h1>
       </div>
       <Divider></Divider>
       {/* Features circles */}
-      <div className="container max-w-5xl mx-auto w-fit">
+      {/* <div className="container max-w-5xl mx-auto w-fit">
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className="flex justify-center mb-5 px-4 text-white uppercase header"
+          className="flex justify-center px-4 mb-5 text-white uppercase header"
         >
-          <img className="w-full h-full" src={features} alt="Features.jpeg" />
+          
         </div>
-      </div>
+      </div> */}
+
+      <Circles></Circles>
       {/* Divider Stick */}
       <div className="container max-w-2xl mx-auto w-fit">
         <Divider></Divider>
@@ -38,6 +41,7 @@ const Features = () => {
           <img className="w-full h-full" src={stick} alt="Stick.jpeg" />
         </div>
       </div>
+
       {/* Gallery */}
       <div className="flex flex-col">
         <Divider></Divider>
@@ -53,6 +57,6 @@ const Features = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Features;

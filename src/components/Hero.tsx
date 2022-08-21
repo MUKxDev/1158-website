@@ -1,12 +1,24 @@
-import videoBg from "../assets/hero-bg-video.mp4";
 import playIcon from "../assets/play.svg";
 import asambaLogo from "../assets/asamba-logo.svg";
 import Divider from "./Divider";
 import HeroMenu from "./HeroMenu";
 import "aos/dist/aos.css";
 import "../index.css";
+import { asambaHeroVideo, getAssamba } from "../api/api";
+import { IAssamba } from "../api/IAssamba";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [heroVideo, setHeroVideo] = useState<IAssamba | null>(null);
+
+  useEffect(() => {
+    fetchData();
+    async function fetchData() {
+      let _assamba: IAssamba | null = await getAssamba(asambaHeroVideo);
+      setHeroVideo(_assamba);
+    }
+  }, []);
+
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
       <div
@@ -22,7 +34,7 @@ const Hero = () => {
       >
         <video
           className="object-cover w-full h-full"
-          src={videoBg}
+          src={heroVideo?.acf?.hero_video}
           autoPlay
           loop
           muted

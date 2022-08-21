@@ -1,39 +1,27 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import AliceCarousel, { EventObject } from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { asambaGallery, getAssamba } from "../api/api";
+import { IAssamba } from "../api/IAssamba";
 
 const handleDragStart = (e: any) => e.preventDefault();
 
-const APIKEY: string =
-  "563492ad6f91700001000001f1ea21d82f2b4c6a994d089180f7cbea";
-
 export default function GalleryList() {
-  const [pictures, setPictures] = useState<Photo[]>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [gallery, setGallery] = useState<IAssamba | null>(null);
 
   useEffect(() => {
     fetchData();
+    async function fetchData() {
+      let _assamba: IAssamba | null = await getAssamba(asambaGallery);
+      setGallery(_assamba);
+    }
   }, []);
 
   /**
    * We're using the axios library to make a GET request to the Pexels API, and then we're using the
    * setPictures function to set the state of the pictures array to the response we get from the API
    */
-  async function fetchData() {
-    await axios
-      .get<Pictures>(`https://api.pexels.com/v1/curated?page=2&per_page=10`, {
-        headers: { Authorization: `${APIKEY}` },
-      })
-      .then((res) => {
-        const images = res.data;
-        console.log(images.photos);
-        setPictures(images.photos);
-      })
-      .catch((err) => {
-        console.log("Error getting pictures", err);
-      });
-  }
 
   function onSlideChanged(e: EventObject) {
     setActiveIndex(e.item);
@@ -45,6 +33,7 @@ export default function GalleryList() {
       onSlideChanged={onSlideChanged}
       autoPlay={true}
       infinite={true}
+      autoHeight={true}
       autoPlayInterval={3000}
       disableDotsControls={true}
       disableButtonsControls={true}
@@ -63,50 +52,21 @@ export default function GalleryList() {
         },
       }}
       mouseTracking
-      items={pictures.map((pic: Photo, index) => (
-        <img
-          key={pic.id}
-          className={`object-cover w-full h-[90%] md:h-[70%] px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
-            activeIndex === index ? "opacity-100" : ""
-          }`}
-          onDragStart={handleDragStart}
-          role="presentation"
-          src={pic.src.portrait}
-          alt={pic.alt}
-        />
+      items={gallery?.acf?.gallery?.map((pic: string, index) => (
+        <div className="h-[calc(100vh-200px)] md:h-[500px] lg:h-[600px]">
+          {/* <div className="h-[90%] !md:h-[70%]"> */}
+          <img
+            key={pic}
+            className={`object-cover !w-full !h-full px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
+              activeIndex === index ? "opacity-100" : ""
+            }`}
+            onDragStart={handleDragStart}
+            role="presentation"
+            src={pic}
+            alt={pic}
+          />
+        </div>
       ))}
     />
   );
-}
-
-interface Pictures {
-  page: number;
-  per_page: number;
-  photos: Photo[];
-  next_page: string;
-}
-
-interface Photo {
-  id: number;
-  width: number;
-  height: number;
-  url: string;
-  photographer: string;
-  photographer_url: string;
-  photographer_id: number;
-  avg_color: string;
-  src: Src;
-  liked: boolean;
-  alt: string;
-}
-
-interface Src {
-  original: string;
-  large2x: string;
-  large: string;
-  medium: string;
-  small: string;
-  portrait: string;
-  landscape: string;
-  tiny: string;
 }

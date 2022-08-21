@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed inset-x-0 p-10 top-0 flex flex-row justify-between z-10 text-white bg-transparent">
+    <div className="fixed inset-x-0 top-0 z-50 flex flex-row justify-between p-10 text-white bg-black">
       <div className="nav-start">
         <img className="h-10" src={asambaSymbol} alt="asamba-symbol" />
       </div>

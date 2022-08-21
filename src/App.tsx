@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     AOS.init({});
   }, []);
+
   return (
     <div className="h-auto bg-black">
       <Header />
