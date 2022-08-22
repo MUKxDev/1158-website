@@ -71,8 +71,9 @@ export default function ContactForm() {
           className="cursor-pointer assambaInput"
           {...register("requestFor", { required: true })}
         >
-          <option value="Business Deck 2022">Business Deck 2022</option>
-          <option value="Ship Deck 2023">Ship Deck 2023</option>
+          <option defaultValue="Business Deck">Business Deck</option>
+          <option defaultValue="Investment Memorandum">Investment Memorandum</option>
+          <option defaultValue="All Documents">All Documents</option>
         </select>
       </div>
       <input
