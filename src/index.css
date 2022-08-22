@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "MadeMirage-Medium";
+  src: local("MADEMirageMedium"),
+    url(./fonts/MadeMirage/MADEMirageMediumPERSONALUSE.otf) format("otf");
+}
+
 @import url("https://rsms.me/inter/inter.css");
 html {
   font-family: "Inter", sans-serif;

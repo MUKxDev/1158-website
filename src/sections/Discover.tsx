@@ -26,7 +26,7 @@ export default function Discover() {
           data-aos-duration="1000"
           className="flex justify-center mb-10 text-white uppercase header"
         >
-          <h1 className="max-w-4xl font-serif text-4xl md:text-7xl font-extralight">
+          <h1 className="max-w-4xl font-MadeMirage-Medium text-4xl md:text-7xl">
             The greatest experience in the universe
           </h1>
         </div>
