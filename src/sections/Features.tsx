@@ -1,8 +1,9 @@
 import Divider from "../components/Divider";
 import GalleryList from "../components/GalleryList";
-import features from "../assets/features.png";
+
 import stick from "../assets/stick.png";
 import Circles from "../components/Circles";
+// import Circles from "../components/Circles";
 
 function Features() {
   return (
