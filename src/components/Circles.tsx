@@ -1,97 +1,123 @@
-import { useEffect, useRef } from "react";
-import animation from "./Animation";
+// import { useEffect, useRef } from "react";
 // import animation from "./Animation";
+// // import animation from "./Animation";
 
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
-// import { Lottie } from "lottie-react";
+// import Lottie, { LottieRefCurrentProps } from "lottie-react";
+// // import { Lottie } from "lottie-react";
 
-export default function Circles() {
-  useEffect(() => {
-    //
-  }, []);
+// export default function Circles() {
+//   useEffect(() => {
+//     //
+//   }, []);
 
-  const animationRef = useRef<LottieRefCurrentProps | null>(null);
+//   const animationRef = useRef<LottieRefCurrentProps | null>(null);
 
-  function goToLastFrame() {
-    animationRef.current?.goToAndStop(60);
-  }
-  return (
-    <div
-      data-aos="fade-up"
-      data-aos-duration="1000"
-      id="discoverAnimation"
-      className="h-screen"
-    >
-      <Lottie
-        lottieRef={animationRef}
-        animationData={animation}
-        className="h-screen"
-        loop={false}
-        interactivity={{
-          actions: [
-            {
-              type: "play",
-              frames: [0, 160],
-              visibility: [1.0, 1.0],
-            },
-            // {
-            //   type: "stop",
-            //   frames: [60],
-            //   visibility: [1, 0],
-            // },
-          ],
-          mode: "scroll",
-        }}
-      ></Lottie>
-    </div>
-  );
-}
-
-// import React from "react";
-
-// import { create } from "@lottiefiles/lottie-interactivity";
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.myRef = React.createRef(); // 1. create a reference for the lottie player
+//   function goToLastFrame() {
+//     animationRef.current?.goToAndStop(60);
 //   }
-//   componentDidMount() {
-//     // 3. listen for player load. see lottie player repo for other events
-//     this.myRef.current.addEventListener("load", function (e) {
-//       // 4. configure the interactivity library
-// create({
-//   mode: "scroll",
-//   player: "#discoverAnimation",
-//   actions: [
-//     {
-//       visibility: [0, 1],
-//       type: "seek",
-//       frames: [0, 100],
-//     },
-//   ],
-// });
-//     });
-//   }
-//   render() {
-//     // const defaultOptions = {
-//     //   loop: true,
-//     //   autoplay: true,
-//     //   animationData: data,
-//     //   rendererSettings: {
-//     //     preserveAspectRatio: "xMidYMid slice",
-//     //   },
-//     // };
-//     return (
-//       <div className="h-[500px]">
-//         <Lottie
-//           lottieRef={this.myRef} // 2. set the reference for the player
-//           id="discoverAnimation"
-//           animationData={data}
-//         ></Lottie>
-//       </div>
-//     );
-//   }
+//   return (
+//     <div
+//       data-aos="fade-up"
+//       data-aos-duration="1000"
+//       id="discoverAnimation"
+//       className="h-screen"
+//     >
+//       <Lottie
+//         lottieRef={animationRef}
+//         animationData={animation}
+//         className="h-screen"
+//         loop={false}
+//         interactivity={{
+//           actions: [
+//             {
+//               type: "play",
+//               frames: [0, 160],
+//               visibility: [1.0, 1.0],
+//             },
+//             // {
+//             //   type: "stop",
+//             //   frames: [60],
+//             //   visibility: [1, 0],
+//             // },
+//           ],
+//           mode: "scroll",
+//         }}
+//       ></Lottie>
+//     </div>
+//   );
 // }
 
-// export default App;
+// // import React from "react";
+
+// // import { create } from "@lottiefiles/lottie-interactivity";
+
+// // class App extends React.Component {
+// //   constructor(props) {
+// //     super(props);
+// //     this.myRef = React.createRef(); // 1. create a reference for the lottie player
+// //   }
+// //   componentDidMount() {
+// //     // 3. listen for player load. see lottie player repo for other events
+// //     this.myRef.current.addEventListener("load", function (e) {
+// //       // 4. configure the interactivity library
+// // create({
+// //   mode: "scroll",
+// //   player: "#discoverAnimation",
+// //   actions: [
+// //     {
+// //       visibility: [0, 1],
+// //       type: "seek",
+// //       frames: [0, 100],
+// //     },
+// //   ],
+// // });
+// //     });
+// //   }
+// //   render() {
+// //     // const defaultOptions = {
+// //     //   loop: true,
+// //     //   autoplay: true,
+// //     //   animationData: data,
+// //     //   rendererSettings: {
+// //     //     preserveAspectRatio: "xMidYMid slice",
+// //     //   },
+// //     // };
+// //     return (
+// //       <div className="h-[500px]">
+// //         <Lottie
+// //           lottieRef={this.myRef} // 2. set the reference for the player
+// //           id="discoverAnimation"
+// //           animationData={data}
+// //         ></Lottie>
+// //       </div>
+// //     );
+// //   }
+// // }
+
+// // export default App;
+import React, {useEffect, useState} from "react";
+import Lottie from "react-lottie-player";
+import animation from "./Animation";
+<script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>;
+const Circles = () => {
+  const [scrollShow, setScrollPosition] = useState(0);
+  const handleScroll = (event: any) => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  return (
+    <div className="h-full" data-aos="fade-up"
+    data-aos-duration="1000">
+      <Lottie animationData={animation} play={scrollShow > 1200} loop={false} style={{height:1000}} />
+    </div>
+  );
+};
+
+export default Circles;
