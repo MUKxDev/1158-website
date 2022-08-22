@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function ContactForm() {
   const {
@@ -6,7 +7,21 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = async (data: any) => {
+
+    try {
+      // make axios post request
+      const response = await axios({
+        method: "post",
+        url: "http://www.1158.fthm.me/wp-json/contact-form-7/v1/contact-forms/37/feedback",
+        data: data,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   console.log(errors);
 
   return (
@@ -21,7 +36,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="text"
-          {...register("firstAndLastName", {
+          {...register("first-last-name", {
             required: true,
             maxLength: 80,
           })}
@@ -34,7 +49,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="email"
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          {...register("your-email", { required: true, pattern: /^\S+@\S+$/i })}
         />
       </div>
       <div className="flex flex-col items-start justify-start w-full">
@@ -44,7 +59,7 @@ export default function ContactForm() {
         <input
           className="assambaInput"
           type="text"
-          {...register("shipName", { required: true, maxLength: 100 })}
+          {...register("company-name", { required: true, maxLength: 100 })}
         />
       </div>
 
