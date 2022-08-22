@@ -1,10 +1,10 @@
 // To parse this data:
 //
-//   import { Convert, IAssamba } from "./file";
+//   import { Convert, IAsamba } from "./file";
 //
-//   const iAssamba = Convert.toIAssamba(json);
+//   const iAsamba = Convert.toIAsamba(json);
 
-export interface IAssamba {
+export interface IAsamba {
   acf?: Acf;
 }
 
@@ -16,11 +16,11 @@ export interface Acf {
 
 // Converts JSON strings to/from your types
 export class Convert {
-  public static toIAssamba(json: string): IAssamba {
+  public static toIAsamba(json: string): IAsamba {
     return JSON.parse(json);
   }
 
-  public static iAssambaToJson(value: IAssamba): string {
+  public static iAsambaToJson(value: IAsamba): string {
     return JSON.stringify(value);
   }
 }

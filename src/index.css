@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "MadeMirage-Medium";
-  src: local("MADEMirageMedium"),
-    url(./fonts/MadeMirage/MADEMirageMediumPERSONALUSE.otf) format("otf");
+  font-family: "Mirage";
+  src: url(./fonts/MadeMirage/MADEMirageRegularPERSONALUSE.otf);
 }
 
 @import url("https://rsms.me/inter/inter.css");
@@ -84,7 +83,7 @@ input {
   }
 }
 
-.assambaInput {
+.asambaInput {
   @apply w-full px-0 m-0 text-white bg-transparent border-t-0 border-b border-white placeholder:text-white/60 border-x-0 h-fit ring-0 focus:ring-0 focus:border-white;
 }
 

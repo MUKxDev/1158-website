@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "MadeMirage-Medium": ["MadeMirage-Medium", "sans-serif"],
+        "Mirage": ["Mirage", "sans-serif"],
       },
     },
   },

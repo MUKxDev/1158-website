@@ -34,7 +34,7 @@ export default function ContactForm() {
           First and last name*
         </label>
         <input
-          className="assambaInput"
+          className="asambaInput"
           type="text"
           {...register("first-last-name", {
             required: true,
@@ -47,7 +47,7 @@ export default function ContactForm() {
           Email address*
         </label>
         <input
-          className="assambaInput"
+          className="asambaInput"
           type="email"
           {...register("your-email", { required: true, pattern: /^\S+@\S+$/i })}
         />
@@ -57,7 +57,7 @@ export default function ContactForm() {
           Company Name*
         </label>
         <input
-          className="assambaInput"
+          className="asambaInput"
           type="text"
           {...register("company-name", { required: true, maxLength: 100 })}
         />
@@ -68,7 +68,7 @@ export default function ContactForm() {
           Request For*
         </label>
         <select
-          className="cursor-pointer assambaInput"
+          className="cursor-pointer asambaInput"
           {...register("requestFor", { required: true })}
         >
           <option defaultValue="Business Deck">Business Deck</option>

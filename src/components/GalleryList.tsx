@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import AliceCarousel, { EventObject } from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { asambaGallery, getAssamba } from "../api/api";
-import { IAssamba } from "../api/IAssamba";
+import { asambaGallery, getAsamba } from "../api/api";
+import { IAsamba } from "../api/IAsamba";
 
 const handleDragStart = (e: any) => e.preventDefault();
 
 export default function GalleryList() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [gallery, setGallery] = useState<IAssamba | null>(null);
+  const [gallery, setGallery] = useState<IAsamba | null>(null);
 
   useEffect(() => {
     fetchData();
     async function fetchData() {
-      let _assamba: IAssamba | null = await getAssamba(asambaGallery);
-      setGallery(_assamba);
+      let _asamba: IAsamba | null = await getAsamba(asambaGallery);
+      setGallery(_asamba);
     }
   }, []);
 

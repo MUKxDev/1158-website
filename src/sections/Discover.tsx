@@ -1,16 +1,16 @@
 import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
-import { getAssamba, asambaDiscoverVideo } from "../api/api";
-import { IAssamba } from "../api/IAssamba";
+import { getAsamba, asambaDiscoverVideo } from "../api/api";
+import { IAsamba } from "../api/IAsamba";
 
 export default function Discover() {
-  const [discoverVideo, setDiscoverVideo] = useState<IAssamba | null>(null);
+  const [discoverVideo, setDiscoverVideo] = useState<IAsamba | null>(null);
 
   useEffect(() => {
     fetchData();
     async function fetchData() {
-      let _assamba: IAssamba | null = await getAssamba(asambaDiscoverVideo);
-      setDiscoverVideo(_assamba);
+      let _asamba: IAsamba | null = await getAsamba(asambaDiscoverVideo);
+      setDiscoverVideo(_asamba);
     }
   }, []);
 
@@ -26,7 +26,7 @@ export default function Discover() {
           data-aos-duration="1000"
           className="flex justify-center mb-10 text-white uppercase header"
         >
-          <h1 className="max-w-4xl font-MadeMirage-Medium text-4xl md:text-7xl">
+          <h1 className="max-w-4xl font-Mirage text-4xl md:text-7xl">
             The greatest experience in the universe
           </h1>
         </div>

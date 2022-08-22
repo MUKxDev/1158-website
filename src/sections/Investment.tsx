@@ -13,7 +13,7 @@ const Investment = () => {
         data-aos-duration="1000"
         className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
       >
-        <h1 className="max-w-3xl font-serif text-4xl font-extralight lg:text-7xl">
+        <h1 className="max-w-3xl font-Mirage text-4xl font-extralight lg:text-7xl">
           Investment opportunities
         </h1>
       </div>

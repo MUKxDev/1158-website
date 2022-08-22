@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IAssamba } from "./IAssamba";
+import { IAsamba } from "./IAsamba";
 
 /* -------------------------------------------------------------------------- */
 /*                                    URLS                                    */
@@ -18,52 +18,52 @@ export const asambaDiscoverVideo: string =
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-export async function getAssamba(type: string): Promise<IAssamba | null> {
+export async function getAsamba(type: string): Promise<IAsamba | null> {
   return await axios
-    .get<IAssamba[] | null>(`${apiBase}/${type}`)
+    .get<IAsamba[] | null>(`${apiBase}/${type}`)
     .then((res) => {
-      let result: IAssamba[] | null = res.data;
+      let result: IAsamba[] | null = res.data;
       return result && result[0];
     })
     .catch((err) => {
-      console.log("Error getting assamba", err);
+      console.log("Error getting asamba", err);
       return null;
     });
 }
-// export async function getAssambaEditor(): Promise<IAssambaEditor | null> {
+// export async function getAsambaEditor(): Promise<IAsambaEditor | null> {
 //   return await axios
-//     .get<IAssambaEditor[] | null>(`${apiBase}/${asambaEditor}`)
+//     .get<IAsambaEditor[] | null>(`${apiBase}/${asambaEditor}`)
 //     .then((res) => {
-//       let result: IAssambaEditor[] | null = res.data;
+//       let result: IAsambaEditor[] | null = res.data;
 //       return result && result[0];
 //     })
 //     .catch((err) => {
-//       console.log("Error getting assambaEditor", err);
+//       console.log("Error getting asambaEditor", err);
 //       return null;
 //     });
 // }
 
 // export async function getGalleryImages(
-//   assambaEditor: IAssambaEditor
-// ): Promise<IAssambaImage[]> {
-//   let listOfAssambaImages: IAssambaImage[] = [];
+//   asambaEditor: IAsambaEditor
+// ): Promise<IAsambaImage[]> {
+//   let listOfAsambaImages: IAsambaImage[] = [];
 
-//   for await (const imageRef of assambaEditor._links["acf:attachment"]) {
-//     let assambaImage: IAssambaImage | null = await axios
-//       .get<IAssambaImage | null>(`${imageRef.href}`)
+//   for await (const imageRef of asambaEditor._links["acf:attachment"]) {
+//     let asambaImage: IAsambaImage | null = await axios
+//       .get<IAsambaImage | null>(`${imageRef.href}`)
 //       .then((res) => {
-//         let result: IAssambaImage | null = res.data;
+//         let result: IAsambaImage | null = res.data;
 //         return result;
 //       })
 //       .catch((err) => {
-//         console.log("Error getting assambaImage", err);
+//         console.log("Error getting asambaImage", err);
 //         return null;
 //       });
 
-//     if (assambaImage != null) {
-//       listOfAssambaImages.push(assambaImage);
+//     if (asambaImage != null) {
+//       listOfAsambaImages.push(asambaImage);
 //     }
 //   }
 
-//   return listOfAssambaImages;
+//   return listOfAsambaImages;
 // }

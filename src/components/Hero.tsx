@@ -4,18 +4,18 @@ import Divider from "./Divider";
 import HeroMenu from "./HeroMenu";
 import "aos/dist/aos.css";
 import "../index.css";
-import { asambaHeroVideo, getAssamba } from "../api/api";
-import { IAssamba } from "../api/IAssamba";
+import { asambaHeroVideo, getAsamba } from "../api/api";
+import { IAsamba } from "../api/IAsamba";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
-  const [heroVideo, setHeroVideo] = useState<IAssamba | null>(null);
+  const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
 
   useEffect(() => {
     fetchData();
     async function fetchData() {
-      let _assamba: IAssamba | null = await getAssamba(asambaHeroVideo);
-      setHeroVideo(_assamba);
+      let _asamba: IAsamba | null = await getAsamba(asambaHeroVideo);
+      setHeroVideo(_asamba);
     }
   }, []);
 

@@ -1,10 +1,10 @@
 // To parse this data:
 //
-//   import { Convert, IAssambaImage } from "./file";
+//   import { Convert, IAsambaImage } from "./file";
 //
-//   const iAssambaImage = Convert.toIAssambaImage(json);
+//   const iAsambaImage = Convert.toIAsambaImage(json);
 
-export interface IAssambaImage {
+export interface IAsambaImage {
   id: number;
   date: Date;
   date_gmt: Date;
@@ -93,11 +93,11 @@ export enum MIMEType {
 
 // Converts JSON strings to/from your types
 export class Convert {
-  public static toIAssambaImage(json: string): IAssambaImage {
+  public static toIAsambaImage(json: string): IAsambaImage {
     return JSON.parse(json);
   }
 
-  public static iAssambaImageToJson(value: IAssambaImage): string {
+  public static iAsambaImageToJson(value: IAsambaImage): string {
     return JSON.stringify(value);
   }
 }

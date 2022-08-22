@@ -4,7 +4,7 @@
 //
 //   const asambaEditor = Convert.toAsambaEditor(json);
 
-export interface IAssambaEditor {
+export interface IAsambaEditor {
   id: number;
   date: Date;
   date_gmt: Date;
@@ -63,11 +63,11 @@ export interface GUID {
 
 // Converts JSON strings to/from your types
 export class Convert {
-  public static toAssambaEditor(json: string): IAssambaEditor {
+  public static toAsambaEditor(json: string): IAsambaEditor {
     return JSON.parse(json);
   }
 
-  public static assambaEditorToJson(value: IAssambaEditor): string {
+  public static asambaEditorToJson(value: IAsambaEditor): string {
     return JSON.stringify(value);
   }
 }
