@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useState } from "react";
 
 export default function ContactForm() {
   const {
@@ -7,7 +8,20 @@ export default function ContactForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [headerText, setHeaderText] = useState("Success");
+  const [bodyText, setBodyText] = useState(
+    "An email has been sent successfully"
+  );
+
   const onSubmit = async (data: any) => {
+    setShowPopUp(false);
+    setIsSuccess(false);
+    setHeaderText("");
+    setBodyText("");
+
     try {
       // make axios post request
       const response = await axios({
@@ -17,14 +31,54 @@ export default function ContactForm() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(response);
+
+      // IF success
+      setHeaderText("Success");
+      setBodyText("An email has been sent successfully.");
+      setIsSuccess(true);
+      togglePopUp();
     } catch (error) {
       console.log(error);
+      // IF fails
+      setHeaderText("Fails");
+      setBodyText("An error has occurred while trying to send an email.");
+      setIsSuccess(false);
+      togglePopUp();
     }
   };
-  console.log(errors);
+
+  function togglePopUp() {
+    setShowPopUp(!showPopUp);
+  }
 
   return (
     <div>
+      {/* Response Message */}
+      {showPopUp && (
+        <div
+          className={`flex max-w-3xl mx-auto justify-between m-2 mb-4  items-center border  rounded-md px-6 py-2 ${
+            isSuccess
+              ? "text-success border-success"
+              : "text-error border-error"
+          }`}
+        >
+          {/* header & body */}
+          <div className="flex flex-col justify-start items-start grow">
+            <p>{headerText}</p>
+            <p>{bodyText}</p>
+          </div>
+          {/* close buttone */}
+          <div
+            onClick={togglePopUp}
+            className={`btn btn-sm  rounded-md min-w-fit ${
+              isSuccess ? "btn-success" : "btn-error"
+            }`}
+          >
+            x
+          </div>
+        </div>
+      )}
+      {/* Form */}
       <form
         className="container grid max-w-3xl grid-cols-1 gap-6 mx-auto lg:grid-cols-2 "
         onSubmit={handleSubmit(onSubmit)}
@@ -95,6 +149,33 @@ export default function ContactForm() {
           value="Request Access"
         />
       </form>
+      {/* {showPopUp && (
+        // <div className="flex flex-col items-center justify-center w-screen z-40 top-0 left-0 fixed">
+        //   <div className="bg-teal-600 min-h-[300px] min-w-[300px]  "></div>
+        // </div>
+        
+      )} */}
+      {/* <div>
+        <input
+          type="checkbox"
+          id="my-modal-3"
+          className="modal-toggle"
+          checked={showPopUp}
+        />
+        <div className="modal bg-transparent">
+          <div className="modal-box relative shadow-xl">
+            <label
+              htmlFor="my-modal-3"
+              onClick={togglePopUp}
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            <h3 className="text-lg font-bold">{headerText}</h3>
+            <p className="py-4">{bodyText}</p>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 }
