@@ -14,7 +14,6 @@ import videoBg from "../assets/hero-bg-video.mp4";
 const Hero = () => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
   const [openModal, setOpenModal] = useState(false);
-  console.log(openModal);
 
   const handleClick = () => {
     setOpenModal((current) => !current);
@@ -30,6 +29,7 @@ const Hero = () => {
 
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
+      <div className="hidden">{heroVideo?.acf?.discover_video}</div>
       <FsLightbox toggler={openModal} sources={[videoFull]} />
       <div
         data-aos="fade"

@@ -20,6 +20,7 @@ export default function Discover() {
       id="discover"
       className="relative flex flex-col items-center justify-center w-full max-w-5xl min-h-[50vh] px-10 mx-auto mt-5 text-white align-middle"
     >
+      <div className="hidden">{discoverVideo?.acf?.discover_video}</div>
       {/* Video */}
       <div
         data-aos="fade"
