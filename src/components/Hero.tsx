@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import "../index.css";
 import { asambaHeroVideo, getAsamba } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import videoFull from "../assets/hero-full-video.mp4";
 // import videoBg from "../assets/hero-bg-video.mp4";
@@ -14,6 +14,11 @@ import videoFull from "../assets/hero-full-video.mp4";
 const Hero = () => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
   const [openModal, setOpenModal] = useState(false);
+
+  const videoRef = useRef<HTMLVideoElement>(null!);
+  useEffect(() => {
+    videoRef.current.defaultMuted = true;
+  });
 
   const handleClick = () => {
     setOpenModal((current) => !current);
@@ -42,6 +47,7 @@ const Hero = () => {
           className="object-cover w-full h-full"
           src={heroVideo?.acf?.hero_video}
           // src={videoBg}
+          ref={videoRef}
           autoPlay
           loop
           muted
