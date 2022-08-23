@@ -11,6 +11,7 @@ export default function ContactForm() {
 
   const [showPopUp, setShowPopUp] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [headerText, setHeaderText] = useState("Success");
   const [bodyText, setBodyText] = useState(
     "An email has been sent successfully"
@@ -21,6 +22,7 @@ export default function ContactForm() {
     setIsSuccess(false);
     setHeaderText("");
     setBodyText("");
+    setIsLoading(true);
 
     try {
       // make axios post request
@@ -45,6 +47,7 @@ export default function ContactForm() {
       setIsSuccess(false);
       togglePopUp();
     }
+    setIsLoading(false);
   };
 
   function togglePopUp() {
@@ -143,39 +146,17 @@ export default function ContactForm() {
             <option defaultValue="All Documents">All Documents</option>
           </select>
         </div>
-        <input
-          className="px-8 py-3  md:col-span-2 m-0 mx-auto md:mr-0 text-white uppercase duration-150 border border-white rounded-full cursor-pointer bg-white/0 hover:bg-white/10 mt-11 w-fit"
+        <button
+          className={`btn text-base font-normal px-8 py-3  md:col-span-2 m-0 mx-auto md:mr-0 text-white uppercase duration-150 border border-white hover:border-white rounded-full cursor-pointer bg-white/0 hover:bg-white/10 mt-11 w-fit ${
+            isLoading && "loading"
+          }`}
           type="submit"
           value="Request Access"
-        />
+          title="Request Access"
+        >
+          Request Access
+        </button>
       </form>
-      {/* {showPopUp && (
-        // <div className="flex flex-col items-center justify-center w-screen z-40 top-0 left-0 fixed">
-        //   <div className="bg-teal-600 min-h-[300px] min-w-[300px]  "></div>
-        // </div>
-        
-      )} */}
-      {/* <div>
-        <input
-          type="checkbox"
-          id="my-modal-3"
-          className="modal-toggle"
-          checked={showPopUp}
-        />
-        <div className="modal bg-transparent">
-          <div className="modal-box relative shadow-xl">
-            <label
-              htmlFor="my-modal-3"
-              onClick={togglePopUp}
-              className="btn btn-sm btn-circle absolute right-2 top-2"
-            >
-              ✕
-            </label>
-            <h3 className="text-lg font-bold">{headerText}</h3>
-            <p className="py-4">{bodyText}</p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

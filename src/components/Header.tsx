@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Header.css";
 import asambaSymbol from "../assets/asamba-symbol.svg";
 import soundOn from "../assets/sound-on.svg";
@@ -17,6 +17,10 @@ const Header = () => {
     setPlaying(false);
     audioRef.current.pause();
   };
+
+  useEffect(() => {
+    audioRef.current.pause();
+  }, []);
 
   return (
     <div className="fixed inset-x-0 top-0 z-30 flex flex-row justify-between p-10 text-white bg-black">

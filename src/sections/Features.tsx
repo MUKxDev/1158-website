@@ -12,30 +12,19 @@ function Features() {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
+        className="flex justify-center  text-white uppercase header lg:text-6xl"
       >
         <h1 className="max-w-3xl  font-Mirage text-4xl font-extralight md:text-7xl">
           Features
         </h1>
       </div>
-      <Divider></Divider>
-      {/* Features circles */}
-      {/* <div className="container max-w-5xl mx-auto w-fit">
-        <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          className="flex justify-center px-4 mb-5 text-white uppercase header"
-        >
-          
-        </div>
-      </div> */}
 
       <Circles></Circles>
       {/* Divider Stick */}
       <div className="container max-w-2xl mx-auto w-fit">
         <Divider></Divider>
         <div
-          data-aos="fade"
+          data-aos="zoom-in-up"
           data-aos-duration="1000"
           className="flex justify-center px-4 mb-5 text-white uppercase header"
         >

@@ -8,6 +8,7 @@ import Main from "./sections/Main";
 import Investment from "./sections/Investment";
 import { useEffect } from "react";
 import AOS from "aos";
+import Divider from "./components/Divider";
 
 function App() {
   useEffect(() => {
@@ -16,10 +17,11 @@ function App() {
 
   return (
     <div className="h-auto bg-black">
-      {/* <Header />
-      <Footer /> */}
+      <Header />
+      <Footer />
       <Main />
       <Discover />
+      <Divider></Divider>
       <Features />
       <Investment />
     </div>
