@@ -29,8 +29,8 @@ export default function Discover() {
       >
         <video
           className="object-cover w-full h-full rounded-full md:max-h-80"
-          // src={discoverVideo?.acf?.discover_video}
-          src={videoSrc}
+          src={discoverVideo?.acf?.discover_video}
+          // src={videoSrc}
           autoPlay
           loop
           muted

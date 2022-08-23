@@ -40,8 +40,8 @@ const Hero = () => {
       >
         <video
           className="object-cover w-full h-full"
-          // src={heroVideo?.acf?.hero_video}
-          src={videoBg}
+          src={heroVideo?.acf?.hero_video}
+          // src={videoBg}
           autoPlay
           loop
           muted
