@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import videoFull from "../assets/hero-full-video.mp4";
 import videoBg from "../assets/hero-bg-video.mp4";
-// import Lightbox from "./Lightbox";
 
 const Hero = () => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
@@ -20,8 +19,6 @@ const Hero = () => {
   const handleClick = () => {
     setOpenModal((current) => !current);
   };
-
-  // document.body.style.overflow = openModal ? "hidden" : "auto";
 
   useEffect(() => {
     fetchData();
@@ -33,32 +30,6 @@ const Hero = () => {
 
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
-      {/* <>
-        {openModal ? (
-          <div>
-            <button
-              className="absolute z-50 top-10 left-20"
-              onClick={handleClick}
-            >
-              <div className="text-white flex flex-row gap-4 cursor-pointer align-middle items-center justify-center border-[1px] pl-3 pr-9 font-medium rounded-full border-white hover:opacity-70 transition-all duration-00">
-                <div className="text-3xl font-light no-wrap items-center -translate-y-[2px]">
-                  &times;
-                </div>
-                <p className="text-sm font-regular drop-shadow-lg tracking-[0.15em]">
-                  CLOSE
-                </p>
-              </div>
-            </button>
-            <Lightbox />
-          </div>
-        ) : (
-          <></>
-        )}
-      </> */}
-      {/* <div
-        id="overlay"
-        className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black to-grey"
-      ></div> */}
       <FsLightbox toggler={openModal} sources={[videoFull]} />
       <div
         data-aos="fade"

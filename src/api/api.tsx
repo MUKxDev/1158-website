@@ -18,6 +18,11 @@ export const asambaDiscoverVideo: string =
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * It returns a promise that resolves to an IAsamba object or null
+ * @param {string} type - string - the type of asamba you want to get.
+ * @returns An array of IAsamba objects
+ */
 export async function getAsamba(type: string): Promise<IAsamba | null> {
   return await axios
     .get<IAsamba[] | null>(`${apiBase}/${type}`)
@@ -30,40 +35,3 @@ export async function getAsamba(type: string): Promise<IAsamba | null> {
       return null;
     });
 }
-// export async function getAsambaEditor(): Promise<IAsambaEditor | null> {
-//   return await axios
-//     .get<IAsambaEditor[] | null>(`${apiBase}/${asambaEditor}`)
-//     .then((res) => {
-//       let result: IAsambaEditor[] | null = res.data;
-//       return result && result[0];
-//     })
-//     .catch((err) => {
-//       console.log("Error getting asambaEditor", err);
-//       return null;
-//     });
-// }
-
-// export async function getGalleryImages(
-//   asambaEditor: IAsambaEditor
-// ): Promise<IAsambaImage[]> {
-//   let listOfAsambaImages: IAsambaImage[] = [];
-
-//   for await (const imageRef of asambaEditor._links["acf:attachment"]) {
-//     let asambaImage: IAsambaImage | null = await axios
-//       .get<IAsambaImage | null>(`${imageRef.href}`)
-//       .then((res) => {
-//         let result: IAsambaImage | null = res.data;
-//         return result;
-//       })
-//       .catch((err) => {
-//         console.log("Error getting asambaImage", err);
-//         return null;
-//       });
-
-//     if (asambaImage != null) {
-//       listOfAsambaImages.push(asambaImage);
-//     }
-//   }
-
-//   return listOfAsambaImages;
-// }
