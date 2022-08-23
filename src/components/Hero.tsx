@@ -9,7 +9,7 @@ import { IAsamba } from "../api/IAsamba";
 import { useEffect, useRef, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import videoFull from "../assets/hero-full-video.mp4";
-// import videoBg from "../assets/hero-bg-video.mp4";
+import videoBg from "../assets/hero-bg-video.mp4";
 
 const Hero = () => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
@@ -45,8 +45,8 @@ const Hero = () => {
       >
         <video
           className="object-cover w-full h-full"
-          src={heroVideo?.acf?.hero_video}
-          // src={videoBg}
+          // src={heroVideo?.acf?.hero_video}
+          src={videoBg}
           ref={videoRef}
           autoPlay
           loop

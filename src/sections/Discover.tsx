@@ -2,7 +2,7 @@ import "aos/dist/aos.css";
 import { useState, useEffect, useRef } from "react";
 import { getAsamba, asambaDiscoverVideo } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
-// import videoSrc from "../assets/discover-video.mp4";
+import videoSrc from "../assets/discover-video.mp4";
 
 export default function Discover() {
   const [discoverVideo, setDiscoverVideo] = useState<IAsamba | null>(null);
@@ -35,7 +35,8 @@ export default function Discover() {
         <video
           ref={videoRef}
           className="object-cover w-full h-full rounded-full md:max-h-80"
-          src={discoverVideo?.acf?.discover_video}
+          src={videoSrc}
+          // src={discoverVideo?.acf?.discover_video}
           autoPlay
           loop
           muted
