@@ -9,7 +9,7 @@ import { IAsamba } from "../api/IAsamba";
 import { useEffect, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import videoFull from "../assets/hero-full-video.mp4";
-import videoBg from "../assets/hero-bg-video.mp4";
+// import videoBg from "../assets/hero-bg-video.mp4";
 
 const Hero = () => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
