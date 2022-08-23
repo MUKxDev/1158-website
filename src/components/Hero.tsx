@@ -51,6 +51,7 @@ const Hero = () => {
           autoPlay
           loop
           muted
+          playsInline
         />
         <div
           data-aos="fade"
