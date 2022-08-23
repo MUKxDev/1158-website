@@ -16,8 +16,8 @@ function App() {
 
   return (
     <div className="h-auto bg-black">
-      <Header />
-      <Footer />
+      {/* <Header />
+      <Footer /> */}
       <Main />
       <Discover />
       <Features />
