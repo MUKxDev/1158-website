@@ -3,7 +3,6 @@ import GalleryList from "../components/GalleryList";
 
 import stick from "../assets/stick.png";
 import Circles from "../components/Circles";
-// import Circles from "../components/Circles";
 
 function Features() {
   return (

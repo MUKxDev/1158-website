@@ -5,7 +5,7 @@ import { IAsamba } from "./IAsamba";
 /*                                    URLS                                    */
 /* -------------------------------------------------------------------------- */
 
-export const apiBase: string = "http://www.1158.fthm.me/wp-json/wp/v2";
+export const apiBase: string = "https://www.1158.fthm.me/wp-json/wp/v2";
 export const asambaEditor: string = "editor?_fields=acf&acf_format=standard";
 export const asambaGallery: string =
   "editor?_fields=acf.gallery&acf_format=standard";
