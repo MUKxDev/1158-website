@@ -1,6 +1,13 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState } from "react";
+import { Listbox, Transition } from "@headlessui/react";
+
+const requestFor = [
+  { id: 1, name: "Business Deck" },
+  { id: 2, name: "Investment Memorandum" },
+  { id: 3, name: "All Documents" },
+];
 
 export default function ContactForm() {
   const {
@@ -12,37 +19,50 @@ export default function ContactForm() {
   const [showPopUp, setShowPopUp] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedRequestFor, setSelectedRequestFor] = useState(requestFor[0]);
   const [headerText, setHeaderText] = useState("Success");
   const [bodyText, setBodyText] = useState(
     "An email has been sent successfully"
   );
 
   const onSubmit = async (data: any) => {
+    let emailToSendData = {
+      ...data,
+      requestFor: selectedRequestFor.name,
+    };
+
     setShowPopUp(false);
     setIsSuccess(false);
     setHeaderText("");
     setBodyText("");
     setIsLoading(true);
-
     try {
       // make axios post request
       const response = await axios({
         method: "post",
-        url: "http://www.1158.fthm.me/wp-json/contact-form-7/v1/contact-forms/37/feedback",
-        data: data,
+        url: "https://www.1158.fthm.me/wp-json/contact-form-7/v1/contact-forms/37/feedback",
+        data: emailToSendData,
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(response);
 
       // IF success
-      setHeaderText("Success");
-      setBodyText("An email has been sent successfully.");
-      setIsSuccess(true);
-      togglePopUp();
+
+      if (response.data.status === "mail_sent") {
+        setHeaderText("Success");
+        setBodyText("An email has been sent successfully.");
+        setIsSuccess(true);
+        togglePopUp();
+      } else {
+        setHeaderText("Error");
+        setBodyText(`${response.data.message}`);
+        setIsSuccess(false);
+        togglePopUp();
+      }
     } catch (error) {
       console.log(error);
       // IF fails
-      setHeaderText("Fails");
+      setHeaderText("Error");
       setBodyText("An error has occurred while trying to send an email.");
       setIsSuccess(false);
       togglePopUp();
@@ -66,7 +86,7 @@ export default function ContactForm() {
           }`}
         >
           {/* header & body */}
-          <div className="flex flex-col justify-start items-start grow">
+          <div className="flex flex-col items-start justify-start grow">
             <p>{headerText}</p>
             <p>{bodyText}</p>
           </div>
@@ -133,7 +153,7 @@ export default function ContactForm() {
           <label className="text-base uppercase text-white/30">
             Request For*
           </label>
-          <select
+          {/* <select
             className={`cursor-pointer asambaInput ${
               errors["requestFor"] && "!border-red-400"
             }`}
@@ -144,7 +164,34 @@ export default function ContactForm() {
               Investment Memorandum
             </option>
             <option defaultValue="All Documents">All Documents</option>
-          </select>
+          </select> */}
+          <div className="relative w-full">
+            <Listbox
+              // {...register("requestFor", { required: true })}
+              value={selectedRequestFor}
+              onChange={setSelectedRequestFor}
+            >
+              <Listbox.Button
+                className={`cursor-pointer flex py-2 after:[content:'▼'] after:ml-auto after:text-xs items-center asambaInput ${
+                  errors["requestFor"] && "!border-red-400"
+                }`}
+              >
+                {selectedRequestFor.name}
+              </Listbox.Button>
+
+              <Listbox.Options className="absolute left-0 right-0 flex flex-col gap-2 p-3 text-white bg-black border border-t-0 border-white rounded-b-xl top-full ">
+                {requestFor.map((requestFor) => (
+                  <Listbox.Option
+                    className="px-4 py-2 rounded-lg cursor-pointer hover:bg-white/10"
+                    key={requestFor.id}
+                    value={requestFor}
+                  >
+                    {requestFor.name}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Listbox>
+          </div>
         </div>
         <button
           className={`btn text-base font-normal px-8 py-3  md:col-span-2 m-0 mx-auto md:mr-0 text-white uppercase duration-150 border border-white hover:border-white rounded-full cursor-pointer bg-white/0 hover:bg-white/10 mt-11 w-fit ${
