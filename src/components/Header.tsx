@@ -5,6 +5,7 @@ import soundOn from "../assets/sound-on.svg";
 import soundOff from "../assets/sound-off.svg";
 import HeroMenu from "./HeroMenu";
 import music from "../assets/music.mp3";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const [playing, setPlaying] = useState(false);
@@ -25,7 +26,9 @@ const Header = () => {
   return (
     <div className="fixed inset-x-0 top-0 z-30 flex flex-row justify-between p-10 text-white bg-black">
       <div className="nav-start">
-        <img className="h-10" src={asambaSymbol} alt="asamba-symbol" />
+        <Link to="overview" spy={true} smooth={true} duration={500}>
+          <img className="h-10" src={asambaSymbol} alt="asamba-symbol" />
+        </Link>
       </div>
       <div>
         <HeroMenu isHeader={true} />

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react";
-import { Listbox } from "@headlessui/react";
+import { useState, Fragment } from "react";
+import { Listbox, Transition } from "@headlessui/react";
 
 const requestFor = [
   { id: 1, name: "Business Deck" },
@@ -171,25 +171,40 @@ export default function ContactForm() {
               value={selectedRequestFor}
               onChange={setSelectedRequestFor}
             >
-              <Listbox.Button
-                className={`cursor-pointer flex py-2 after:[content:'▼'] after:ml-auto after:text-xs items-center asambaInput ${
-                  errors["requestFor"] && "!border-red-400"
-                }`}
-              >
-                {selectedRequestFor.name}
-              </Listbox.Button>
-
-              <Listbox.Options className="absolute left-0 right-0 flex flex-col gap-2 p-3 text-white bg-black border border-t-0 border-white rounded-b-xl top-full ">
-                {requestFor.map((requestFor) => (
-                  <Listbox.Option
-                    className="px-4 py-2 rounded-lg cursor-pointer hover:bg-white/10"
-                    key={requestFor.id}
-                    value={requestFor}
+              {({ open }) => (
+                <>
+                  <Listbox.Button
+                    className={`cursor-pointer flex py-2 after:[content:'▼'] after:ml-auto after:text-xs items-center asambaInput ${
+                      errors["requestFor"] && "!border-red-400"
+                    }`}
                   >
-                    {requestFor.name}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
+                    {selectedRequestFor.name}
+                  </Listbox.Button>
+
+                  <Transition
+                    show={open}
+                    as={Listbox.Options}
+                    enter="transition-all duration-300"
+                    enterFrom="opacity-0 -translate-y-2"
+                    enterTo="opacity-100 translate-y-0"
+                    leave="transition-all duration-150"
+                    leaveFrom="opacity-100 translate-y-0"
+                    leaveTo="opacity-0 -translate-y-2"
+                    static
+                    className="absolute left-0 right-0 flex flex-col gap-2 p-3 text-white bg-black border border-t-0 border-white rounded-b-xl top-full "
+                  >
+                    {requestFor.map((requestFor) => (
+                      <Listbox.Option
+                        className="px-4 py-2 rounded-lg cursor-pointer hover:bg-white/10 focus-within:bg-white/10"
+                        key={requestFor.id}
+                        value={requestFor}
+                      >
+                        {requestFor.name}
+                      </Listbox.Option>
+                    ))}
+                  </Transition>
+                </>
+              )}
             </Listbox>
           </div>
         </div>

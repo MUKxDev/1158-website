@@ -4,7 +4,7 @@ import "./Header.css";
 
 const HeroMenu = (props: { isHeader?: boolean }) => {
   const [scrollShow, setScrollPosition] = useState(0);
-  const handleScroll = (event: any) => {
+  const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
@@ -35,6 +35,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             spy={true}
             smooth={true}
             duration={500}
+            offset={-70}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
               DISCOVER
@@ -46,7 +47,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={-70}
+            offset={-200}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
               FEATURES
