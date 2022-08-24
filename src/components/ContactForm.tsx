@@ -28,7 +28,7 @@ export default function ContactForm() {
   const onSubmit = async (data: any) => {
     let emailToSendData = {
       ...data,
-      requestFor: selectedRequestFor.name,
+      "request-for": selectedRequestFor.name,
     };
 
     setShowPopUp(false);
