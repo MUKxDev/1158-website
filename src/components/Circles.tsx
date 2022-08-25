@@ -1,5 +1,6 @@
 import { Transition } from "@headlessui/react";
 import { useRef } from "react";
+import { scroller } from "react-scroll";
 import Lottie from "react-lottie-player";
 import { useIsInViewport } from "../helpers/useIsInViewport";
 import animation from "./Animation";
@@ -12,8 +13,11 @@ export default function Circles() {
   const isLearnMoreRefInViewport = useIsInViewport(learnMoreRef);
 
   function onLearnMoreClick() {
-    // TODO: do functionality for the learn more button
-    alert("You clicked learn more.");
+    scroller.scrollTo("investment", {
+      spy: true,
+      smooth: true,
+      duration: 500,
+    });
   }
 
   return (
@@ -37,13 +41,13 @@ export default function Circles() {
         <Transition
           onClick={onLearnMoreClick}
           show={isLearnMoreRefInViewport}
-          enter="transform transition duration-1000"
-          enterFrom="opacity-0  scale-50"
-          enterTo="opacity-100  scale-100"
-          leave="transform duration-200 transition ease-in-out"
-          leaveFrom="opacity-100  scale-100 "
-          leaveTo="opacity-0 scale-95 "
-          className="absolute z-20 tracking-wide text-white uppercase duration-150 border border-white/80 hover:border-white cursor-pointer bg-white/0 hover:bg-white/10  font-normal   bottom-[28%] btn btn-xs md:btn-sm lg:btn-md rounded-full"
+          enter="transition-all ease-in-out duration-1000"
+          enterFrom="opacity-0 scale-50"
+          enterTo="opacity-100 scale-100"
+          leave="duration-200 transition-all ease-in-out"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+          className="font-normal tracking-wide text-white uppercase duration-150 border rounded-full cursor-pointer border-white/80 hover:border-white bg-white/0 hover:bg-white/10 btn btn-xs md:btn-sm lg:btn-md"
         >
           Learn more
         </Transition>

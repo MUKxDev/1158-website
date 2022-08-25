@@ -103,7 +103,7 @@ export default function ContactForm() {
       )}
       {/* Form */}
       <form
-        className="container grid max-w-3xl grid-cols-1 gap-6 mx-auto lg:grid-cols-2 "
+        className="container grid max-w-3xl grid-cols-1 gap-6 mx-auto md:grid-cols-2 "
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className={`flex flex-col items-start justify-start w-full `}>

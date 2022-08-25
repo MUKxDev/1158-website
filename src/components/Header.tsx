@@ -1,27 +1,33 @@
-import { useState, useRef, useEffect } from "react";
 import "./Header.css";
 import asambaSymbol from "../assets/asamba-symbol.svg";
 import soundOn from "../assets/sound-on.svg";
 import soundOff from "../assets/sound-off.svg";
 import HeroMenu from "./HeroMenu";
-import music from "../assets/music.mp3";
+// import music from "../assets/music.mp3";
 import { Link } from "react-scroll";
 
-const Header = () => {
-  const [playing, setPlaying] = useState(false);
-  const audioRef = useRef(new Audio(music));
+const Header = (props: {
+  isPlaying: boolean;
+  toggleIsPlaying: (play: boolean) => void;
+}) => {
+  // const [playing, setPlaying] = useState(false);
+
+  // const audioRef = ref;
+  // const audioRef = useRef(new Audio(music));
   const play = () => {
-    setPlaying(true);
-    audioRef.current.play();
+    // setPlaying(true);
+    // audioRef.current.play();
+    props.toggleIsPlaying(true);
   };
   const pause = () => {
-    setPlaying(false);
-    audioRef.current.pause();
+    // setPlaying(false);
+    // audioRef.current.pause();
+    props.toggleIsPlaying(false);
   };
 
-  useEffect(() => {
-    audioRef.current.pause();
-  }, []);
+  // useEffect(() => {
+  //   audioRef.current.pause();
+  // }, [audioRef]);
 
   return (
     <div className="fixed inset-x-0 top-0 z-30 flex flex-row justify-between p-10 text-white bg-black">
@@ -36,10 +42,14 @@ const Header = () => {
       <div className="nav-end">
         <button
           type="button"
-          onClick={playing ? pause : play}
+          onClick={props.isPlaying ? pause : play}
           className="cursor-pointer"
         >
-          <img src={playing ? soundOn : soundOff} alt="sound-on" />
+          {props.isPlaying ? (
+            <img src={soundOn} alt="sound-on" />
+          ) : (
+            <img src={soundOff} alt="sound-on" />
+          )}
         </button>
       </div>
     </div>

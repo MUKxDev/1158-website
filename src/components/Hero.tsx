@@ -10,19 +10,36 @@ import { useEffect, useRef, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import videoFull from "../assets/hero-full-video.mp4";
 import videoBg from "../assets/hero-bg-video.mp4";
+// import VimeoPlayer from "react-player/vimeo";
 
-const Hero = () => {
+const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(true);
 
   const videoRef = useRef<HTMLVideoElement>(null!);
   useEffect(() => {
     videoRef.current.defaultMuted = true;
   });
 
-  const handleClick = () => {
-    setOpenModal((current) => !current);
+  // const handleClick = () => {
+  //   if (audioRef.current.paused) {
+  //     audioRef.current.play();
+  //   } else {
+  //     audioRef.current.pause();
+  //   }
+  // };
+  const stopMusic = () => {
+    // audioRef.current.pause();
+    props.toggleIsPlaying(false);
   };
+  // const playMusic = () => {
+  //   // audioRef.current.play();
+  //   props.toggleIsPlaying(true);
+  // };
+
+  function toggleModal() {
+    setOpenModal(!openModal);
+  }
 
   useEffect(() => {
     fetchData();
@@ -35,7 +52,33 @@ const Hero = () => {
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
       <div className="hidden">{heroVideo?.acf?.discover_video}</div>
-      <FsLightbox toggler={openModal} sources={[videoFull]} />
+      <FsLightbox
+        toggler={openModal}
+        onClose={stopMusic}
+        onOpen={stopMusic}
+        // sources={["https://www.youtube.com/watch?v=plvZgYTBGp4"]}
+        sources={[videoFull]}
+
+        // customSources={[
+        //   <div key="video" className="w-[500px] h-[250px]">
+        //     <VimeoPlayer
+        //       url={"https://vimeo.com/735918780"}
+        //       playing
+        //       muted
+        //       width={"100%"}
+        //       height={"100%"}
+        //       loop
+        //       className="!rounded-full w-full h-full"
+        //       config={{
+        //         playerOptions: {
+        //           background: true,
+        //           muted: true,
+        //         },
+        //       }}
+        //     />
+        //   </div>,
+        // ]}
+      />
       <div
         data-aos="fade"
         data-aos-duration="500"
@@ -53,6 +96,21 @@ const Hero = () => {
           muted
           playsInline
         />
+        {/* <VimeoPlayer
+          url={"https://vimeo.com/735918780"}
+          playing
+          muted
+          width={"100%"}
+          height={"100%"}
+          loop
+          className="!rounded-full w-full h-full"
+          config={{
+            playerOptions: {
+              background: true,
+              muted: true,
+            },
+          }}
+        /> */}
         <div
           data-aos="fade"
           data-aos-duration="3000"
@@ -67,7 +125,7 @@ const Hero = () => {
           <div>
             <button
               type="button"
-              onClick={handleClick}
+              onClick={toggleModal}
               className="border-[1px] py-1.5 px-5 font-medium rounded-full border-white hover:opacity-70 transition-all duration-00"
             >
               <p className="text-sm drop-shadow-lg tracking-[0.15em] flex items-center">
@@ -83,5 +141,4 @@ const Hero = () => {
     </div>
   );
 };
-
 export default Hero;
