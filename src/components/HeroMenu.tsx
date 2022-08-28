@@ -28,7 +28,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
       }
     >
       <div className="flex justify-center">
-        <ul className="hidden list-none lg:block">
+        <ul className="md:block hidden list-none ">
           <Link
             activeClass="active"
             to="discover"
