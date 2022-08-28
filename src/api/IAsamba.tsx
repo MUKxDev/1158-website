@@ -10,6 +10,7 @@ export interface IAsamba {
 
 export interface Acf {
   gallery?: string[];
+  full_video?: string;
   hero_video?: string;
   discover_video?: string;
 }

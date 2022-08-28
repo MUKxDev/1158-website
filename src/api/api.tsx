@@ -13,6 +13,8 @@ export const asambaHeroVideo: string =
   "editor?_fields=acf.hero_video&acf_format=standard";
 export const asambaDiscoverVideo: string =
   "editor?_fields=acf.discover_video&acf_format=standard";
+export const asambaFullVideo: string =
+  "editor?_fields=acf.full_video&acf_format=standard";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */

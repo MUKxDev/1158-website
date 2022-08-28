@@ -7,14 +7,18 @@ import "../index.css";
 import { asambaHeroVideo, getAsamba } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
 import { useEffect, useRef, useState } from "react";
-import FsLightbox from "fslightbox-react";
-import videoFull from "../assets/hero-full-video.mp4";
-import videoBg from "../assets/hero-bg-video.mp4";
+// import FsLightbox from "fslightbox-react";
+// import videoFull from "../assets/hero-full-video.mp4";
+// import videoBg from "../assets/hero-bg-video.mp4";
+// import VimeoPlayer from "react-player/vimeo";
 // import VimeoPlayer from "react-player/vimeo";
 
-const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
+const Hero = (props: {
+  toggleIsPlaying: (play: boolean) => void;
+  setShowLightBox: (show: boolean) => void;
+}) => {
   const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
-  const [openModal, setOpenModal] = useState(true);
+  // const [openModal, setOpenModal] = useState(true);
 
   const videoRef = useRef<HTMLVideoElement>(null!);
   useEffect(() => {
@@ -38,7 +42,9 @@ const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
   // };
 
   function toggleModal() {
-    setOpenModal(!openModal);
+    // setOpenModal(!openModal);
+    stopMusic();
+    props.setShowLightBox(true);
   }
 
   useEffect(() => {
@@ -51,13 +57,13 @@ const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
 
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
-      <div className="hidden">{heroVideo?.acf?.discover_video}</div>
-      <FsLightbox
+      {/* <div className="hidden">{heroVideo?.acf?.discover_video}</div> */}
+      {/* <FsLightbox
         toggler={openModal}
         onClose={stopMusic}
         onOpen={stopMusic}
         // sources={["https://www.youtube.com/watch?v=plvZgYTBGp4"]}
-        sources={[videoFull]}
+        sources={[heroVideo?.acf?.full_video ?? ""]}
 
         // customSources={[
         //   <div key="video" className="w-[500px] h-[250px]">
@@ -78,7 +84,7 @@ const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
         //     />
         //   </div>,
         // ]}
-      />
+      /> */}
       <div
         data-aos="fade"
         data-aos-duration="500"
@@ -88,8 +94,7 @@ const Hero = (props: { toggleIsPlaying: (play: boolean) => void }) => {
       >
         <video
           className="object-cover w-full h-full"
-          // src={heroVideo?.acf?.hero_video}
-          src={videoBg}
+          src={heroVideo?.acf?.hero_video}
           ref={videoRef}
           autoPlay
           loop
