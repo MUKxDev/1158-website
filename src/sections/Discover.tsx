@@ -1,10 +1,11 @@
 import "aos/dist/aos.css";
 import { useState, useEffect, useRef } from "react";
-// import ReactPlayer from "react-player";
 // import VimeoPlayer from "react-player/vimeo";
 import { getAsamba, asambaDiscoverVideo } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
 import videoSrc from "../assets/discover-video.mp4";
+import activeLogoHor from "../assets/active-logo-hor.svg";
+import activeLogo from "../assets/active-logo.svg";
 
 export default function Discover() {
   const [discoverVideo, setDiscoverVideo] = useState<IAsamba | null>(null);
@@ -27,7 +28,17 @@ export default function Discover() {
       id="discover"
       className="relative flex flex-col items-center justify-center w-full max-w-5xl min-h-[50vh] px-10 mx-auto mt-5 text-white align-middle"
     >
-      <div className="hidden">{discoverVideo?.acf?.discover_video}</div>
+      <div
+        data-aos="fade"
+        data-aos-duration="1000"
+        className="flex max-w-[220px] p-10  mx-auto md:hidden"
+      >
+        <img
+          src={activeLogo}
+          alt="Active Logo"
+          className="w-full h-full duration-200 opacity-100 hover:opacity-100"
+        />
+      </div>
       {/* Video */}
       <div
         data-aos="fade"
@@ -36,7 +47,7 @@ export default function Discover() {
       >
         {/* <div className="rounded-full overflow-clip aspect-video">
           <VimeoPlayer
-            url={"https://vimeo.com/735918780"}
+            url={discoverVideo?.acf?.discover_video}
             playing
             muted
             loop
@@ -66,9 +77,16 @@ export default function Discover() {
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className="flex justify-center mb-10 text-white uppercase header"
+          className="flex flex-col justify-center mt-6 mb-12 text-white uppercase header md:mt-0"
         >
-          <h1 className="max-w-4xl text-4xl font-Mirage md:text-7xl">
+          <div className="hidden max-w-xs py-10 md:flex">
+            <img
+              src={activeLogoHor}
+              alt="Active Logo"
+              className="w-full h-full duration-200 opacity-40 hover:opacity-100"
+            />
+          </div>
+          <h1 className="max-w-4xl text-4xl text-center md:text-left font-Mirage md:text-7xl">
             The greatest experience in the Universe
           </h1>
         </div>
@@ -79,10 +97,10 @@ export default function Discover() {
           className="line-divider"
         >
           {/* <span className="h-[2px] w-20 bg-white flex justify-center mb-10"></span> */}
-          <h4 className="max-w-xl text-2xl font-bold md:text-4xl font-Mirage">
+          <h4 className="max-w-xl -mt-6 text-2xl font-bold text-justify md:mt-0 md:text-left md:text-4xl font-Mirage">
             ASAMBA will be the future of Health & Fitness.
           </h4>
-          <p className="max-w-xl mt-3 ">
+          <p className="max-w-xl mt-3 text-justify md:text-left">
             Creating entertainment through sight & sound to stimulate physical &
             emotional well-being.
           </p>
