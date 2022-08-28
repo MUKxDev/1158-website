@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // import VimeoPlayer from "react-player/vimeo";
 import { getAsamba, asambaDiscoverVideo } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
-import videoSrc from "../assets/discover-video.mp4";
+// import videoSrc from "../assets/discover-video.mp4";
 import activeLogoHor from "../assets/active-logo-hor.svg";
 import activeLogo from "../assets/active-logo.svg";
 
@@ -45,27 +45,46 @@ export default function Discover() {
         data-aos-duration="1000"
         className="md:absolute md:mt-40 md:mb-0 mb-4 md:right-0 md:w-[75%] md:min-w-0 min-w-full"
       >
-        {/* <div className="rounded-full overflow-clip aspect-video">
-          <VimeoPlayer
-            url={discoverVideo?.acf?.discover_video}
+        {/* <div className="rounded-full overflow-clip aspect-video"> */}
+        {/* <VimeoPlayer
+            url={"https://vimeo.com/743855590"}
             playing
             muted
             loop
+            controls={false}
             width={"100%"}
             height={"100%"}
             config={{
               playerOptions: {
                 background: true,
                 muted: true,
+                controls: false,
+                keyboard: false,
+                title: false,
               },
             }}
-          />
-        </div> */}
+          /> */}
+        {/* <VimeoPlayer
+            url={"https://vimeo.com/743855590"}
+            playing
+            muted
+            width={"100%"}
+            height={"100%"}
+            loop
+            className="!rounded-full w-full h-full"
+            config={{
+              playerOptions: {
+                background: true,
+                muted: true,
+              },
+            }}
+          /> */}
+        {/* </div> */}
         <video
           ref={videoRef}
           className="object-cover w-full h-full rounded-full md:max-h-80"
-          src={videoSrc}
-          // src={discoverVideo?.acf?.discover_video}
+          // src={videoSrc}
+          src={discoverVideo?.acf?.discover_video}
           autoPlay
           loop
           muted

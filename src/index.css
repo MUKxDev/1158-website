@@ -131,3 +131,7 @@ body.vp-center {
   @apply !rounded-full;
   border-radius: 900px !important;
 }
+
+.noBar .play-bar {
+  display: none !important;
+}
