@@ -19,8 +19,8 @@ const Lightbox = (props: {
           Close
         </Button>
       </div>
-      <div className="z-40 w-full select-none hover:select-none isolate noBar aspect-video">
-        <div className="relative w-full h-full">
+      <div className="z-40 w-full mx-auto select-none max-w-7xl hover:select-none isolate noBar aspect-video">
+        <div className="relative w-full h-full px-6">
           <iframe
             src={props.url}
             width="100%"
@@ -29,7 +29,7 @@ const Lightbox = (props: {
             scrolling="no"
             seamless={true}
             allowFullScreen={true}
-            className=""
+            className="border shadow-2xl border-white/30 rounded-xl shadow-white/20"
           ></iframe>
 
           <div className="w-[80px] h-[80px] absolute bg-transparent right-0 top-0">
