@@ -1,4 +1,3 @@
-import React from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-scroll";
 
@@ -14,7 +13,7 @@ const MobileNav = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <ul className="list-none flex-wrap text-white text-center">
+        <ul className="flex-wrap text-center text-white list-none">
           <Link
             activeClass="active"
             to="discover"

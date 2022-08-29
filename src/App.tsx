@@ -39,7 +39,6 @@ function App() {
     async function fetchData() {
       let _asamba: IAsamba | null = await getAsamba(asambaFullVideo);
       setFullVideo(_asamba);
-      console.log(_asamba);
     }
   }, []);
 

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState, Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
+import { emailService } from "../api/api";
 
 const requestFor = [
   { id: 1, name: "Business Deck" },
@@ -40,11 +41,10 @@ export default function ContactForm() {
       // make axios post request
       const response = await axios({
         method: "post",
-        url: "https://www.1158.fthm.me/wp-json/contact-form-7/v1/contact-forms/37/feedback",
+        url: emailService,
         data: emailToSendData,
         headers: { "Content-Type": "multipart/form-data" },
       });
-      console.log(response);
 
       // IF success
 
@@ -153,21 +153,9 @@ export default function ContactForm() {
           <label className="text-base uppercase text-white/30">
             Request For*
           </label>
-          {/* <select
-            className={`cursor-pointer asambaInput ${
-              errors["requestFor"] && "!border-red-400"
-            }`}
-            {...register("requestFor", { required: true })}
-          >
-            <option defaultValue="Business Deck">Business Deck</option>
-            <option defaultValue="Investment Memorandum">
-              Investment Memorandum
-            </option>
-            <option defaultValue="All Documents">All Documents</option>
-          </select> */}
+
           <div className="relative w-full">
             <Listbox
-              // {...register("requestFor", { required: true })}
               value={selectedRequestFor}
               onChange={setSelectedRequestFor}
             >

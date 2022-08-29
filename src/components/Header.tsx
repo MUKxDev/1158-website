@@ -25,8 +25,6 @@ const Header = (props: {
     setShowMenu((current) => !current);
   };
 
-  console.log(showMenu);
-
   return (
     <div>
       <div className="fixed inset-x-0 top-0 z-30 flex flex-row items-center justify-between p-10 text-white bg-black">
@@ -41,7 +39,7 @@ const Header = (props: {
         <div className={showMenu ? "mobileNavActive animate" : "mobileNav"}>
           <MobileNav />
         </div>
-        <div className="nav-end flex flex-row justify-center">
+        <div className="flex flex-row justify-center nav-end">
           <button
             type="button"
             onClick={props.isPlaying ? pause : play}
@@ -56,7 +54,7 @@ const Header = (props: {
           <button onClick={toggleShowMenu}>
             <img
               src={showMenu ? cross : hamburger}
-              className="md:hidden ml-10"
+              className="ml-10 md:hidden"
               alt="hamburger"
             />
           </button>
