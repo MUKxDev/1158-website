@@ -36,8 +36,14 @@ const Header = (props: {
         <div>
           <HeroMenu isHeader={true} />
         </div>
-        <div className={showMenu ? "mobileNavActive animate" : "mobileNav"}>
-          <MobileNav />
+        <div
+          className={
+            showMenu
+              ? "mobileNavActive md:opacity-0 opacity-100 h-[20vw]"
+              : "mobileNavActive h-[1vw] select-none opacity-0"
+          }
+        >
+          <MobileNav toggleShowMenu={toggleShowMenu} />
         </div>
         <div className="flex flex-row justify-center nav-end">
           <button
@@ -60,6 +66,14 @@ const Header = (props: {
           </button>
         </div>
       </div>
+      <div
+        onClick={toggleShowMenu}
+        className={
+          showMenu
+            ? "bg-transparent w-full h-screen fixed top-0 visible z-20"
+            : "hidden"
+        }
+      ></div>
     </div>
   );
 };

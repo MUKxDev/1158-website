@@ -32,7 +32,7 @@ const Lightbox = (props: {
             className=""
           ></iframe>
 
-          <div className="w-[80px] h-[80px] absolute opacity-1 bg-transparent right-0 top-0">
+          <div className="w-[80px] h-[80px] absolute bg-transparent right-0 top-0">
             &nbsp;
           </div>
         </div>
