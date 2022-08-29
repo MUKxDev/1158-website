@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { emailService } from "../api/api";
 

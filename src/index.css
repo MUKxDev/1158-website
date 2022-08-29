@@ -126,17 +126,3 @@ video {
   margin: 1em;
   margin-top: 8em;
 }
-
-body.vp-center {
-  @apply !rounded-full;
-  border-radius: 900px !important;
-}
-
-.noBar .play-bar {
-  display: none !important;
-}
-
-html
-  .ndfHFb-c4YZDc-GSQQnc-LgbsSe.ndfHFb-c4YZDc-to915-LgbsSe.VIpgJd-TzA9Ye-eEGnhe.ndfHFb-c4YZDc-LgbsSe {
-  display: none !important;
-}

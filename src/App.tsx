@@ -21,18 +21,7 @@ function App() {
   const [fullVideo, setFullVideo] = useState<IAsamba | null>(null);
   useEffect(() => {
     AOS.init({});
-    // autoPlay();
-
-    // async function autoPlay() {
-    //   await delay(5000);
-
-    //   audioRef.current.play();
-    // }
   }, []);
-
-  // function delay(ms: number) {
-  //   return new Promise((resolve) => setTimeout(resolve, ms));
-  // }
 
   useEffect(() => {
     fetchData();

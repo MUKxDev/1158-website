@@ -1,19 +1,14 @@
-import React from "react";
-
-
 const Footer = () => {
   return (
-    <div className="fixed align-middle bottom-5 px-10 z-30 w-full">
-      <div
-        id="box"
-        className="absolute bg-white text-white w-24"
-      >s</div>
-      <div
-        id="copyright"
-        className="horLine -translate-y-3"
-      >
-        <p className="text-right right-0 -translate-y-2 text-white absolute fade">Copyright © Asamba Inc. 2022 </p>
-        <br/>
+    <div className="fixed z-30 w-full px-10 align-middle bottom-5">
+      <div id="box" className="absolute w-24 text-white bg-white">
+        s
+      </div>
+      <div id="copyright" className="-translate-y-3 horLine">
+        <p className="absolute right-0 text-right text-white -translate-y-2 fade">
+          Copyright © Asamba Inc. 2022{" "}
+        </p>
+        <br />
         <hr className="border-white" />
       </div>
     </div>
