@@ -43,7 +43,10 @@ const Header = (props: {
               : "mobileNavActive h-[1vw] select-none opacity-0"
           }
         >
-          <MobileNav toggleShowMenu={toggleShowMenu} />
+          {/* <MobileNav isShow={showMenu} toggleShowMenu={toggleShowMenu} /> */}
+        </div>
+        <div className="mobileNavActive">
+          <MobileNav isShow={showMenu} toggleShowMenu={toggleShowMenu} />
         </div>
         <div className="flex flex-row justify-center nav-end">
           <button

@@ -1,17 +1,27 @@
 import { Transition } from "@headlessui/react";
 import { Link } from "react-scroll";
 
-const MobileNav = (props: { toggleShowMenu: () => void }) => {
+const MobileNav = (props: { toggleShowMenu: () => void; isShow: boolean }) => {
   return (
-    <div className="flex flex-col justify-center w-full">
+    <Transition
+      show={props.isShow}
+      className="flex flex-col justify-center w-full h-0 opacity-0"
+      enter="transition-all ease-in-out duration-300"
+      enterFrom="opacity-0 h-0"
+      enterTo="opacity-100 bg-black h-24"
+      leave="duration-300 transition-all ease-in-out"
+      leaveFrom="opacity-100 scale-100"
+      leaveTo="opacity-0 scale-95"
+    >
       <Transition
-        show={true}
-        enter="transition-all ease-in-out duration-1000"
-        enterFrom="opacity-0 scale-50"
-        enterTo="opacity-100 scale-100"
-        leave="duration-200 transition-all ease-in-out"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
+        show={props.isShow}
+        className=""
+        enter=""
+        enterFrom=""
+        enterTo=""
+        leave=""
+        leaveFrom=""
+        leaveTo=""
       >
         <ul className="flex-wrap text-center text-white list-none">
           <Link
@@ -21,7 +31,7 @@ const MobileNav = (props: { toggleShowMenu: () => void }) => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={-70}
+            offset={-120}
           >
             <li className="text-sm px-16 py-1 font-medium tracking-[0.15em]">
               DISCOVER
@@ -54,7 +64,7 @@ const MobileNav = (props: { toggleShowMenu: () => void }) => {
           </Link>
         </ul>
       </Transition>
-    </div>
+    </Transition>
   );
 };
 

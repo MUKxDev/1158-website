@@ -51,7 +51,7 @@ export default function GalleryList() {
       }}
       mouseTracking
       items={gallery?.acf?.gallery?.map((pic: string, index) => (
-        <div className="h-[calc(100vh-200px)] md:h-[500px] lg:h-[600px]">
+        <div className="h-[calc(100vh-200px)] md:h-[500px] lg:h-[600px] max-h-[1000px]">
           <img
             key={pic}
             className={`object-cover !w-full !h-full px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
