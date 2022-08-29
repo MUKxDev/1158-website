@@ -39,64 +39,13 @@ export default function Discover() {
           className="w-full h-full duration-200 opacity-100 hover:opacity-100"
         />
       </div>
-      {/* Video */}
-      <div
-        data-aos="fade"
-        data-aos-duration="1000"
-        className="md:absolute md:mt-40 md:mb-0 mb-4 md:right-0 md:w-[75%] md:min-w-0 min-w-full"
-      >
-        {/* <div className="rounded-full overflow-clip aspect-video"> */}
-        {/* <VimeoPlayer
-            url={"https://vimeo.com/743855590"}
-            playing
-            muted
-            loop
-            controls={false}
-            width={"100%"}
-            height={"100%"}
-            config={{
-              playerOptions: {
-                background: true,
-                muted: true,
-                controls: false,
-                keyboard: false,
-                title: false,
-              },
-            }}
-          /> */}
-        {/* <VimeoPlayer
-            url={"https://vimeo.com/743855590"}
-            playing
-            muted
-            width={"100%"}
-            height={"100%"}
-            loop
-            className="!rounded-full w-full h-full"
-            config={{
-              playerOptions: {
-                background: true,
-                muted: true,
-              },
-            }}
-          /> */}
-        {/* </div> */}
-        <video
-          ref={videoRef}
-          className="object-cover w-full h-full rounded-full md:max-h-80"
-          // src={videoSrc}
-          src={discoverVideo?.acf?.discover_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-      </div>
+
       {/* Hero */}
       <div className="z-10 mb-12">
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
-          className="flex flex-col justify-center mt-6 mb-12 text-white uppercase header md:mt-0"
+          className="z-20 flex flex-col justify-center mt-6 mb-12 text-white uppercase header md:mt-0"
         >
           <div className="hidden max-w-xs py-10 md:flex">
             <img
@@ -105,10 +54,28 @@ export default function Discover() {
               className="w-full h-full duration-200 opacity-40 hover:opacity-100"
             />
           </div>
-          <h1 className="max-w-4xl text-4xl text-center md:text-left font-Mirage md:text-7xl">
+          <h1 className="z-10 max-w-4xl text-4xl text-center md:text-left font-Mirage md:text-7xl">
             The greatest experience in the Universe
           </h1>
+          {/* Video */}
+          <div
+            // data-aos="fade"
+            // data-aos-duration="1000"
+            className="md:absolute md:top-40 md:mt-0 mt-11 md:right-0 md:w-[75%] md:min-w-0 min-w-full right-0 z-0 "
+          >
+            <video
+              ref={videoRef}
+              className="object-cover w-full h-full rounded-full md:max-h-80"
+              // src={videoSrc}
+              src={discoverVideo?.acf?.discover_video}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
+
         <div
           data-aos="fade"
           data-aos-duration="1000"
@@ -116,7 +83,7 @@ export default function Discover() {
           className="line-divider"
         >
           {/* <span className="h-[2px] w-20 bg-white flex justify-center mb-10"></span> */}
-          <h4 className="max-w-xl -mt-6 text-2xl font-bold text-justify md:mt-0 md:text-left md:text-4xl font-Mirage">
+          <h4 className="max-w-xl text-2xl font-bold text-justify md:mt-0 md:text-left md:text-4xl font-Mirage">
             ASAMBA will be the future of Health & Fitness.
           </h4>
           <p className="max-w-xl mt-3 text-justify md:text-left">

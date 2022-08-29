@@ -1,6 +1,6 @@
 // import { useEffect, useRef } from "react";
 import { Button } from "react-daisyui";
-import ReactPlayer from "react-player";
+import FilePlayer from "react-player/file";
 // import VimeoPlayer from "react-player/vimeo";
 // import ReactPlayer from "react-player";
 // import YouTubePlayer from "react-player/youtube";
@@ -44,7 +44,7 @@ const Lightbox = (props: {
           }
           url={props.url}
         /> */}
-        <ReactPlayer
+        {/* <FilePlayer
           // ref={videoRef}
           className="z-40 w-full h-full"
           // src={videoSrc}
@@ -52,16 +52,51 @@ const Lightbox = (props: {
           height={"100%"}
           controlsList="nodownload"
           controls
-          // url={
-          //   "https://rr5---sn-4wg7ln7d.c.drive.google.com/videoplayback?expire=1661704899&ei=g2ILY5HSJfCS2LYPxbmxuAE&ip=77.69.161.254&cp=QVRLU0hfU1hXSlhPOmFOd0pOZDZscDY2NG1RWTVzVTBxelRSQUVaQlFyMDJGbEhMNW5zNEEtZDI&id=c6172a944187eba4&itag=59&source=webdrive&requiressl=yes&mh=45&mm=32&mn=sn-4wg7ln7d&ms=su&mv=u&mvi=5&pl=24&ttl=transient&susc=dr&driveid=0B0PZBRAmHTpGUnpyU1QyMmIzN2s&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=670.661&lmt=1376342922787944&mt=1661689539&subapp=DRIVE_WEB_FILE_VIEWER&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgNyEPt2qb9VRHTaGGYUi9SeN4CLVjgv-jzYp5BrOnnjQCIQC9I3dtC590MywHmZf1UDO1pCGKcfxqHItAPRn5yNi7wA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAOZl-oCseGAeXGeuLS320KnsOSCRcV5oD_qtCVk4JX3JAiAHGl0mCSNmRumZfNUPE8iKgy0x8VlIQleiifB1cz5wlA==&cpn=RKAOpm-gmxICJgzP&c=WEB_EMBEDDED_PLAYER&cver=1.20220824.01.00"
-          // }
-          url={props.url}
+          url={
+            "https://drive.google.com/file/d/1kiUb0yw5fdujKl9Ks3WrJksMehspramT/preview"
+          }
+          // url={props.url}
           autoPlay
           playing
           loop
-          muted
+          // muted
           playsInline
-        />
+          config={{
+            attributes: {
+              // autoPlay: true,
+              // playing: true,
+              loop: true,
+              muted: false,
+              playsInline: true,
+              controlsList: "nodownload",
+              controls: true,
+            },
+          }}
+        /> */}
+        <div className="relative w-full h-full">
+          <iframe
+            src="https://drive.google.com/file/d/1kiUb0yw5fdujKl9Ks3WrJksMehspramT/preview"
+            width="100%"
+            // height="480"
+            height="100%"
+            title="hi"
+            scrolling="no"
+            seamless={true}
+            className=""
+          ></iframe>
+
+          {/* <div className="w-[80px] h-[80px] absolute opacity-1 bg-black right-0 top-0">
+            &nbsp;
+          </div> */}
+        </div>
+        {/* <iframe
+          id="sheeel"
+          src="https://drive.google.com/file/d/1kiUb0yw5fdujKl9Ks3WrJksMehspramT/preview"
+          title="asamba full video"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+        ></iframe> */}
       </div>
       <div
         onClick={closeLightBox}
