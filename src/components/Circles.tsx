@@ -3,7 +3,8 @@ import { useRef } from "react";
 import { scroller } from "react-scroll";
 import Lottie from "react-lottie-player";
 import { useIsInViewport } from "../helpers/useIsInViewport";
-import animation from "./Animation";
+import animation from "./Animation-new";
+// import animation from "./Animation";
 
 export default function Circles() {
   const animationRef = useRef(null);
