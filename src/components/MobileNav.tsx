@@ -2,7 +2,7 @@ import React from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-scroll";
 
-const MobileNav = () => {
+const MobileNav = (props: { toggleShowMenu: () => void }) => {
   return (
     <div className="flex flex-col justify-center w-full">
       <Transition
@@ -16,6 +16,7 @@ const MobileNav = () => {
       >
         <ul className="list-none flex-wrap text-white text-center">
           <Link
+            onClick={props.toggleShowMenu}
             activeClass="active"
             to="discover"
             spy={true}
@@ -28,6 +29,7 @@ const MobileNav = () => {
             </li>
           </Link>
           <Link
+            onClick={props.toggleShowMenu}
             activeClass="active"
             to="features"
             spy={true}
@@ -40,6 +42,7 @@ const MobileNav = () => {
             </li>
           </Link>
           <Link
+            onClick={props.toggleShowMenu}
             activeClass="active"
             to="investment"
             spy={true}

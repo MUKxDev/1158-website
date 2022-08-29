@@ -85,9 +85,9 @@ const Lightbox = (props: {
             className=""
           ></iframe>
 
-          {/* <div className="w-[80px] h-[80px] absolute opacity-1 bg-black right-0 top-0">
+          <div className="w-[80px] h-[80px] absolute opacity-1 bg-black right-0 top-0">
             &nbsp;
-          </div> */}
+          </div>
         </div>
         {/* <iframe
           id="sheeel"
