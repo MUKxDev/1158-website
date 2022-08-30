@@ -5,7 +5,7 @@ const Footer = () => {
         s
       </div>
       <div id="copyright" className="-translate-y-3 horLine">
-        <p className="absolute right-0 text-right text-white -translate-y-2 fade">
+        <p className="absolute right-0 text-xs text-right text-white -translate-y-2 md:text-base fade">
           Copyright © Asamba Inc. 2022{" "}
         </p>
         <br />

@@ -5,7 +5,7 @@ import { IAsamba } from "./IAsamba";
 /*                                    URLS                                    */
 /* -------------------------------------------------------------------------- */
 
-export const baseDomain: string = "https://www.1158.fthm.me";
+export const baseDomain: string = "https://admin.asamba.world";
 export const apiBase: string = `${baseDomain}/wp-json/wp/v2`;
 export const emailService: string = `${baseDomain}/wp-json/contact-form-7/v1/contact-forms/37/feedback`;
 export const asambaEditor: string = "editor?_fields=acf&acf_format=standard";
@@ -17,6 +17,7 @@ export const asambaDiscoverVideo: string =
   "editor?_fields=acf.discover_video&acf_format=standard";
 export const asambaFullVideo: string =
   "editor?_fields=acf.full_video&acf_format=standard";
+export const asambaRealFullVideo: string = `${baseDomain}/wp-content/uploads/2022/08/asamba-full.mp4`;
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */

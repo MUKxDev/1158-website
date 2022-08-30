@@ -1,4 +1,5 @@
 import { Button } from "react-daisyui";
+import Plyr from "plyr-react";
 
 const Lightbox = (props: {
   setShowLightBox: (show: boolean) => void;
@@ -7,6 +8,11 @@ const Lightbox = (props: {
   function closeLightBox() {
     props.setShowLightBox(false);
   }
+
+  // const videoRef = useRef<HTMLVideoElement>(null!);
+  // useEffect(() => {
+  //   videoRef.current.defaultMuted = true;
+  // });
 
   return (
     <div className="fixed z-40 flex items-center justify-center w-screen h-screen min-h-screen isolate">
@@ -21,8 +27,8 @@ const Lightbox = (props: {
       </div>
       <div className="z-40 w-full mx-auto select-none max-w-7xl hover:select-none isolate noBar aspect-video">
         <div className="relative w-full h-full px-6">
-          <iframe
-            src={props.url}
+          {/* <iframe
+            src={`${props.url}?start=1`}
             width="100%"
             height="100%"
             title="Asamba full video"
@@ -34,7 +40,33 @@ const Lightbox = (props: {
 
           <div className="w-[80px] h-[80px] absolute bg-transparent right-0 top-0">
             &nbsp;
-          </div>
+          </div> */}
+
+          {/* <ReactPlayer className="" url={props.url}></ReactPlayer> */}
+
+          <Plyr
+            className=""
+            source={{
+              type: "video",
+              title: "Asamba full video",
+              sources: [
+                {
+                  src: `${props.url}`,
+                  type: "video/mp4",
+                  size: 720,
+                },
+                // {
+                //   src: '/path/to/movie.webm',
+                //   type: 'video/webm',
+                //   size: 1080,
+                // },
+              ],
+            }}
+            src={props.url}
+            controls
+            preload="auto"
+            autoPlay
+          ></Plyr>
         </div>
       </div>
       <div
