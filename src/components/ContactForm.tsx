@@ -107,7 +107,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className={`flex flex-col items-start justify-start w-full `}>
-          <label className="text-base uppercase text-white/60">
+          <label className="text-base uppercase text-white">
             First and last name*
           </label>
           <input
@@ -122,7 +122,7 @@ export default function ContactForm() {
           />
         </div>
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white/60">
+          <label className="text-base uppercase text-white">
             Email address*
           </label>
           <input
@@ -137,7 +137,7 @@ export default function ContactForm() {
           />
         </div>
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white/60">
+          <label className="text-base uppercase text-white">
             Company Name*
           </label>
           <input
@@ -150,9 +150,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white/60">
-            Request For*
-          </label>
+          <label className="text-base uppercase text-white">Request For*</label>
 
           <div className="relative w-full">
             <Listbox
