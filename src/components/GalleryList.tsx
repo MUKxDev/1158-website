@@ -27,8 +27,8 @@ export default function GalleryList() {
 
   return (
     <AliceCarousel
-      activeIndex={activeIndex}
-      onSlideChanged={onSlideChanged}
+      // activeIndex={activeIndex}
+      // onSlideChanged={onSlideChanged}
       autoPlay={true}
       infinite={true}
       autoHeight={true}
