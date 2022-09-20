@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AliceCarousel, { EventObject } from "react-alice-carousel";
+import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { asambaGallery, getAsamba } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
@@ -7,7 +7,7 @@ import { IAsamba } from "../api/IAsamba";
 const handleDragStart = (e: any) => e.preventDefault();
 
 export default function GalleryList() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  // const [activeIndex, setActiveIndex] = useState<number>(0);
   const [gallery, setGallery] = useState<IAsamba | null>(null);
 
   useEffect(() => {
@@ -21,9 +21,9 @@ export default function GalleryList() {
     }
   }, []);
 
-  function onSlideChanged(e: EventObject) {
-    setActiveIndex(e.item);
-  }
+  // function onSlideChanged(e: EventObject) {
+  //   setActiveIndex(e.item);
+  // }
 
   return (
     <AliceCarousel
@@ -50,13 +50,11 @@ export default function GalleryList() {
         },
       }}
       mouseTracking
-      items={gallery?.acf?.gallery?.map((pic: string, index) => (
+      items={gallery?.acf?.gallery?.map((pic: string) => (
         <div className="h-[calc(100vh-200px)] md:h-[500px] lg:h-[600px] max-h-[1000px]">
           <img
             key={pic}
-            className={`object-cover !w-full !h-full px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150 ${
-              activeIndex === index ? "opacity-100" : ""
-            }`}
+            className={`object-cover !w-full !h-full px-2 scroll-mx-6 md:opacity-50 hover:cursor-grab active:cursor-grabbing hover:opacity-100 duration-150`}
             onDragStart={handleDragStart}
             role="presentation"
             src={pic}
