@@ -6,8 +6,8 @@ import { emailService } from "../api/api";
 
 const requestFor = [
   { id: 1, name: "Business Deck" },
-  { id: 2, name: "Investment Memorandum" },
-  { id: 3, name: "All Documents" },
+  // { id: 2, name: "Investment Memorandum" },
+  // { id: 3, name: "All Documents" },
 ];
 
 export default function ContactForm() {
@@ -107,7 +107,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className={`flex flex-col items-start justify-start w-full `}>
-          <label className="text-base uppercase text-white">
+          <label className="text-base text-white uppercase">
             First and last name*
           </label>
           <input
@@ -122,7 +122,7 @@ export default function ContactForm() {
           />
         </div>
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white">
+          <label className="text-base text-white uppercase">
             Email address*
           </label>
           <input
@@ -137,7 +137,7 @@ export default function ContactForm() {
           />
         </div>
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white">
+          <label className="text-base text-white uppercase">
             Company Name*
           </label>
           <input
@@ -150,7 +150,7 @@ export default function ContactForm() {
         </div>
 
         <div className="flex flex-col items-start justify-start w-full">
-          <label className="text-base uppercase text-white">Request For*</label>
+          <label className="text-base text-white uppercase">Request For*</label>
 
           <div className="relative w-full">
             <Listbox

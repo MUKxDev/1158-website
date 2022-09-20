@@ -1,5 +1,5 @@
 import playIcon from "../assets/play.svg";
-import asambaLogo from "../assets/asamba-logo.svg";
+import asambaLogo from "../assets/asamba-logo-tm.svg";
 import Divider from "./Divider";
 import HeroMenu from "./HeroMenu";
 import "aos/dist/aos.css";

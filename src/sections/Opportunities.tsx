@@ -1,10 +1,10 @@
 import ContactForm from "../components/ContactForm";
 import Divider from "../components/Divider";
 
-const Investment = () => {
+const Opportunities = () => {
   return (
     <div
-      id="investment"
+      id="opportunities"
       className="flex flex-col justify-center min-h-screen px-8"
     >
       {/* Header */}
@@ -14,7 +14,7 @@ const Investment = () => {
         className="flex justify-center mb-5 text-white uppercase header lg:text-6xl"
       >
         <h1 className="max-w-3xl text-4xl font-Mirage font-extralight lg:text-7xl">
-          Investment opportunities
+          Opportunities
         </h1>
       </div>
       <Divider />
@@ -27,4 +27,4 @@ const Investment = () => {
   );
 };
 
-export default Investment;
+export default Opportunities;

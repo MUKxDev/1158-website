@@ -28,7 +28,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
       }
     >
       <div className="flex justify-center">
-        <ul className="md:block hidden list-none ">
+        <ul className="hidden list-none md:block ">
           <Link
             activeClass="active"
             to="discover"
@@ -55,13 +55,13 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
           </Link>
           <Link
             activeClass="active"
-            to="investment"
+            to="opportunities"
             spy={true}
             smooth={true}
             duration={500}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
-              INVESTMENT
+              OPPORTUNITIES
             </li>
           </Link>
         </ul>

@@ -13,7 +13,7 @@ export default function Circles() {
   const isLearnMoreRefInViewport = useIsInViewport(learnMoreRef);
 
   function onLearnMoreClick() {
-    scroller.scrollTo("investment", {
+    scroller.scrollTo("opportunities", {
       spy: true,
       smooth: true,
       duration: 500,

@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Features from "./sections/Features";
 import Discover from "./sections/Discover";
 import Main from "./sections/Main";
-import Investment from "./sections/Investment";
+import Opportunities from "./sections/Opportunities";
 import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import Divider from "./components/Divider";
@@ -55,7 +55,7 @@ function App() {
       <Discover />
       <Divider></Divider>
       <Features />
-      <Investment />
+      <Opportunities />
     </div>
   );
 }

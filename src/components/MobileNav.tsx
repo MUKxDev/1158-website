@@ -53,7 +53,7 @@ const MobileNav = (props: { toggleShowMenu: () => void; isShow: boolean }) => {
           <Link
             onClick={props.toggleShowMenu}
             activeClass="active"
-            to="investment"
+            to="opportunities"
             spy={true}
             smooth={true}
             duration={500}
