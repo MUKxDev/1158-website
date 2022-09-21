@@ -1,5 +1,5 @@
 import playIcon from "../assets/play.svg";
-import asambaLogo from "../assets/asamba-logo-tm.svg";
+import asambaLogo from "../assets/asamba-logo-tm-03.svg";
 import Divider from "./Divider";
 import HeroMenu from "./HeroMenu";
 import "aos/dist/aos.css";
@@ -62,7 +62,7 @@ const Hero = (props: {
           <p className="text-xl drop-shadow-lg tracking-[0.3em]">EXPERIENCE</p>
           <br />
           <br />
-          <img className="h-11 md:h-14 " src={asambaLogo} alt="asamba-logo" />
+          <img className="h-24 md:h-40 " src={asambaLogo} alt="asamba-logo" />
           <Divider />
           <div>
             <button

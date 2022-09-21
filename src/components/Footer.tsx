@@ -6,7 +6,7 @@ const Footer = () => {
       </div>
       <div id="copyright" className="-translate-y-3 horLine">
         <p className="absolute right-0 text-xs text-right text-white -translate-y-2 md:text-base fade">
-          Copyright © Asamba Inc. 2022{" "}
+          Copyright © Asamba 2022{" "}
         </p>
         <br />
         <hr className="border-white" />

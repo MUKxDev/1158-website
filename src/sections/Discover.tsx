@@ -2,7 +2,7 @@ import "aos/dist/aos.css";
 import { useState, useEffect, useRef } from "react";
 import { getAsamba, asambaDiscoverVideo } from "../api/api";
 import { IAsamba } from "../api/IAsamba";
-import activeLogoHor from "../assets/active-logo-hor.svg";
+
 import activeLogo from "../assets/active-logo.svg";
 
 export default function Discover() {
@@ -45,9 +45,9 @@ export default function Discover() {
           data-aos-duration="1000"
           className="z-20 flex flex-col justify-center mt-6 mb-12 text-white uppercase header md:mt-0"
         >
-          <div className="hidden max-w-xs py-10 md:flex">
+          <div className="hidden py-10 max-w-[120px] md:flex">
             <img
-              src={activeLogoHor}
+              src={activeLogo}
               alt="Active Logo"
               className="w-full h-full duration-200 opacity-40 hover:opacity-100"
             />
