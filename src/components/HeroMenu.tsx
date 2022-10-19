@@ -38,10 +38,10 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             offset={-70}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
-              DISCOVER
+              DISCOVER ASAMBA
             </li>
           </Link>
-          <Link
+          {/* <Link
             activeClass="active"
             to="features"
             spy={true}
@@ -52,7 +52,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
               FEATURES
             </li>
-          </Link>
+          </Link> */}
           <Link
             activeClass="active"
             to="opportunities"
@@ -61,7 +61,7 @@ const HeroMenu = (props: { isHeader?: boolean }) => {
             duration={500}
           >
             <li className="text-sm float-left px-16 py-1 font-medium tracking-[0.15em]">
-              OPPORTUNITIES
+              BUSINESS OPPORTUNITIES
             </li>
           </Link>
         </ul>
