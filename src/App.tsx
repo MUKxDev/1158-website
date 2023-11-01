@@ -11,25 +11,25 @@ import AOS from "aos";
 import Divider from "./components/Divider";
 import music from "./assets/music.mp3";
 import Lightbox from "./components/Lightbox";
-import { IAsamba } from "./api/IAsamba";
-import { asambaFullVideo, getAsamba } from "./api/api";
+// import { IAsamba } from "./api/IAsamba";
+// import { asambaFullVideo, getAsamba } from "./api/api";
 
 function App() {
   const audioRef = useRef(new Audio(music));
   const [isPlaying, setIsPlaying] = useState(false);
   const [showLightBox, setShowLightBox] = useState(false);
-  const [fullVideo, setFullVideo] = useState<IAsamba | null>(null);
+  // const [fullVideo, setFullVideo] = useState<IAsamba | null>(null);
   useEffect(() => {
     AOS.init({});
   }, []);
 
-  useEffect(() => {
-    fetchData();
-    async function fetchData() {
-      let _asamba: IAsamba | null = await getAsamba(asambaFullVideo);
-      setFullVideo(_asamba);
-    }
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  //   async function fetchData() {
+  //     let _asamba: IAsamba | null = await getAsamba(asambaFullVideo);
+  //     setFullVideo(_asamba);
+  //   }
+  // }, []);
 
   const toggleIsPlaying: (play: boolean) => void = (play) => {
     setIsPlaying(play);
@@ -42,7 +42,9 @@ function App() {
         <div className="">
           <Lightbox
             setShowLightBox={setShowLightBox}
-            url={fullVideo?.acf?.full_video}
+            url={
+              "https://res.cloudinary.com/dmcww8ukp/video/upload/v1698828302/ASAMBA_1158/asamba-pitch-long_uix8xp.mp4"
+            }
           ></Lightbox>
         </div>
       )}

@@ -4,15 +4,15 @@ import Divider from "./Divider";
 import HeroMenu from "./HeroMenu";
 import "aos/dist/aos.css";
 import "../index.css";
-import { asambaHeroVideo, getAsamba } from "../api/api";
-import { IAsamba } from "../api/IAsamba";
-import { useEffect, useRef, useState } from "react";
+// import { asambaHeroVideo, getAsamba } from "../api/api";
+// import { IAsamba } from "../api/IAsamba";
+import { useEffect, useRef } from "react";
 
 const Hero = (props: {
   toggleIsPlaying: (play: boolean) => void;
   setShowLightBox: (show: boolean) => void;
 }) => {
-  const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
+  // const [heroVideo, setHeroVideo] = useState<IAsamba | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null!);
   useEffect(() => {
@@ -27,13 +27,13 @@ const Hero = (props: {
     props.setShowLightBox(true);
   }
 
-  useEffect(() => {
-    fetchData();
-    async function fetchData() {
-      let _asamba: IAsamba | null = await getAsamba(asambaHeroVideo);
-      setHeroVideo(_asamba);
-    }
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  //   async function fetchData() {
+  //     let _asamba: IAsamba | null = await getAsamba(asambaHeroVideo);
+  //     setHeroVideo(_asamba);
+  //   }
+  // }, []);
 
   return (
     <div data-aos="fade" data-aos-duration="500" id="overview" className="z-10">
@@ -46,7 +46,9 @@ const Hero = (props: {
       >
         <video
           className="object-cover w-full h-full"
-          src={heroVideo?.acf?.hero_video}
+          src={
+            "https://res.cloudinary.com/dmcww8ukp/video/upload/v1698827999/ASAMBA_1158/asamba-landing_nh6c7t.mp4"
+          }
           ref={videoRef}
           autoPlay
           loop

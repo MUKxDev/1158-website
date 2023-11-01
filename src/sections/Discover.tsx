@@ -1,25 +1,25 @@
 import "aos/dist/aos.css";
-import { useState, useEffect, useRef } from "react";
-import { getAsamba, asambaDiscoverVideo } from "../api/api";
-import { IAsamba } from "../api/IAsamba";
+import { useEffect, useRef } from "react";
+// import { getAsamba, asambaDiscoverVideo } from "../api/api";
+// import { IAsamba } from "../api/IAsamba";
 
 import activeLogo from "../assets/active-logo.svg";
 
 export default function Discover() {
-  const [discoverVideo, setDiscoverVideo] = useState<IAsamba | null>(null);
+  // const [discoverVideo, setDiscoverVideo] = useState<IAsamba | null>(null);
 
   const videoRef = useRef<HTMLVideoElement>(null!);
   useEffect(() => {
     videoRef.current.defaultMuted = true;
   });
 
-  useEffect(() => {
-    fetchData();
-    async function fetchData() {
-      let _asamba: IAsamba | null = await getAsamba(asambaDiscoverVideo);
-      setDiscoverVideo(_asamba);
-    }
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  //   async function fetchData() {
+  //     let _asamba: IAsamba | null = await getAsamba(asambaDiscoverVideo);
+  //     setDiscoverVideo(_asamba);
+  //   }
+  // }, []);
 
   return (
     <div
@@ -60,7 +60,9 @@ export default function Discover() {
             <video
               ref={videoRef}
               className="object-cover w-full h-full rounded-full md:max-h-80"
-              src={discoverVideo?.acf?.discover_video}
+              src={
+                "https://res.cloudinary.com/dmcww8ukp/video/upload/v1698827999/ASAMBA_1158/asamba-stick_frbnei.mp4"
+              }
               autoPlay
               loop
               muted
